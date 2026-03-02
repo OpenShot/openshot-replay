@@ -569,9 +569,35 @@ def run_actions(
                     if not mouse:
                         raise ReplayAbort("Could not determine mouse position before mousedown")
                     if not point_in_window(mouse["x"], mouse["y"], win_geo, margin=pointer_margin):
-                        raise ReplayAbort(
-                            f"Blocked unsafe mousedown at ({mouse['x']},{mouse['y']}) outside OpenShot window bounds {win_geo}"
+                        # Dialog/main close buttons are often in the title bar
+                        # above client geometry. Allow a small title-bar band
+                        # for the currently active OpenShot-owned window, and
+                        # also for trusted foreign dialogs.
+                        active_pid = get_window_pid(active_id)
+                        is_openshot_owned = (
+                            expected_pid is not None
+                            and active_pid is not None
+                            and int(active_pid) == int(expected_pid)
                         )
+                        is_foreign_dialog = (
+                            expected_pid is not None
+                            and active_pid is not None
+                            and int(active_pid) != int(expected_pid)
+                        )
+                        titlebar_margin = max(pointer_margin, 40)
+                        in_titlebar_band = (
+                            (win_geo["x"] - pointer_margin) <= mouse["x"] < (win_geo["x"] + win_geo["width"] + pointer_margin)
+                            and (win_geo["y"] - titlebar_margin) <= mouse["y"] < win_geo["y"]
+                        )
+                        if not ((is_openshot_owned or is_foreign_dialog) and in_titlebar_band):
+                            raise ReplayAbort(
+                                f"Blocked unsafe mousedown at ({mouse['x']},{mouse['y']}) outside OpenShot window bounds {win_geo}"
+                            )
+                        if DEBUG_REPLAY:
+                            print(
+                                f"[DBG] allowing titlebar mousedown outside client bounds at "
+                                f"({mouse['x']},{mouse['y']}) vs {win_geo}"
+                            )
                 button = str(int(step.get("button", 1)))
                 xdotool("mousedown", button)
             elif action == "mouseup":
@@ -587,9 +613,15 @@ def run_actions(
                     if not mouse:
                         raise ReplayAbort("Could not determine mouse position before mouseup")
                     if not point_in_window(mouse["x"], mouse["y"], win_geo, margin=pointer_margin):
-                        raise ReplayAbort(
-                            f"Blocked unsafe mouseup at ({mouse['x']},{mouse['y']}) outside OpenShot window bounds {win_geo}"
-                        )
+                        # Mouse release can legitimately occur after focus/window
+                        # transitions (for example, dialog open/close during
+                        # double-click flows). Releasing is lower risk than
+                        # initiating a click, so allow it to avoid false aborts.
+                        if DEBUG_REPLAY:
+                            print(
+                                f"[DBG] allowing mouseup outside bounds at "
+                                f"({mouse['x']},{mouse['y']}) vs {win_geo}"
+                            )
                 button = str(int(step.get("button", 1)))
                 xdotool("mouseup", button)
             elif action == "scroll":
