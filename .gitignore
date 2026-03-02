@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+# IDE/editor metadata
+.idea/
+
+# Runtime output (local, machine-specific)
+suite/artifacts/home/*
+suite/artifacts/runs/*
+
+# Keep directory placeholders tracked
+!suite/artifacts/home/.gitkeep
+!suite/artifacts/runs/.gitkeep
