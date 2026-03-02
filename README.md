@@ -23,7 +23,7 @@ suite/
   tests.py         # Discover and run all replay test cases
   init_replay.py   # Create baseline .osp project via replay
   assertions.py    # Baseline/state assertion helpers
-  cases/           # *.actions.json and optional *.case.json overrides
+  cases/           # *.actions.json test cases
   artifacts/
     home/          # Isolated OpenShot HOME profile
     traces/        # Expected recording traces (*.jsonl)
@@ -65,6 +65,7 @@ python3 suite/record.py \
   --output suite/cases/trim_clip.actions.json \
   --lang es_ES.UTF-8 \
   --env QT_SCALE_FACTOR=1 \
+  --openshot-arg=--web-backend=webengine \
   --openshot-root ../openshot-qt
 ```
 
@@ -83,7 +84,9 @@ Notes:
 - Mouse wheel scroll is recorded/replayed (including modifier combos like `Ctrl+Scroll`).
 - `--env KEY=VALUE` is repeatable for launch-time env overrides.
 - `--lang` sets both `LANG` and `LC_ALL`.
+- `--openshot-arg ARG` is repeatable for launch-time OpenShot args.
 - Env passed via `--env/--lang` is saved into `meta.env` in the actions file.
+- OpenShot args passed via `--openshot-arg` are saved into `meta.openshot_args`.
 
 ## Replay One Case
 
@@ -98,35 +101,22 @@ Useful options:
 - `--pointer-margin 56` (more tolerant window-edge clicks)
 - `--debug` (verbose replay logging)
 - `--env KEY=VALUE` / `--lang ...` (override recorded launch env)
+- `--openshot-arg ARG` (append/override recorded OpenShot launch args)
 
 Emergency stop: press physical `Esc`.
 
 Replay automatically applies `meta.env` from the actions file when launching OpenShot.
+Replay also automatically applies `meta.openshot_args` from the actions file.
 
-## Add Case to Test Suite
+Backend-specific examples:
 
-No extra file is required. Any `*.actions.json` in `suite/cases/` is treated as a case automatically.
+```bash
+# Record for webengine
+python3 suite/record.py --output suite/cases/preview_webengine.actions.json --openshot-arg=--web-backend=webengine
 
-Optional override file (same base name) if you want custom settings:
-`suite/cases/trim_clip.case.json`
-
-```json
-{
-  "name": "trim_clip",
-  "actions_file": "trim_clip.actions.json",
-  "assert_updates": true,
-  "assert_selections": true
-}
+# Record for qwidget
+python3 suite/record.py --output suite/cases/preview_qwidget.actions.json --openshot-arg=--web-backend=qwidget
 ```
-
-Default expected traces are inferred from `actions_file`:
-- `suite/artifacts/traces/<base>.events.jsonl`
-- `suite/artifacts/traces/<base>.updates.jsonl`
-- `suite/artifacts/traces/<base>.selections.jsonl`
-
-When using an override file:
-- `name`, `assert_events`, `assert_updates`, `assert_selections`, `expected_events`, `expected_updates`, `expected_selections` are honored.
-- `actions_file` is ignored; the matching `*.actions.json` file is used.
 
 ## Run All Cases
 
@@ -150,6 +140,12 @@ Locale/env across all cases:
 
 ```bash
 python3 suite/tests.py --cases suite/cases --lang es_ES.UTF-8 --env QT_SCALE_FACTOR=1
+```
+
+OpenShot args across all cases:
+
+```bash
+python3 suite/tests.py --cases suite/cases --openshot-arg=--web-backend=webengine
 ```
 
 `tests.py` behavior:

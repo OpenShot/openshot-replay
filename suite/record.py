@@ -14,6 +14,7 @@ from replay import (
     get_window_pid,
     launch_openshot,
     maximize_window,
+    normalize_arg_list,
     parse_env_assignments,
     xdotool,
     wait_for_window,
@@ -115,9 +116,9 @@ class Recorder:
             self.actions.append({"action": "sleep", "seconds": round(delta, 4)})
         self.last_event_ts = now
 
-    def _record_move(self, x, y):
+    def _record_move(self, x, y, force=False):
         now = time.monotonic()
-        if self.last_move_xy is not None:
+        if not force and self.last_move_xy is not None:
             dx = abs(x - self.last_move_xy[0])
             dy = abs(y - self.last_move_xy[1])
             if now - self.last_move_ts < self.move_min_interval and dx < self.move_min_delta and dy < self.move_min_delta:
@@ -135,7 +136,9 @@ class Recorder:
     def on_click(self, x, y, button, pressed):
         if self.stop:
             return False
-        self._record_move(x, y)
+        # Always capture exact press/release coordinates, even when move
+        # throttling would otherwise skip near-identical points.
+        self._record_move(x, y, force=True)
         name = str(button)
         b = 1
         if name.endswith("right"):
@@ -285,6 +288,13 @@ def main():
         default="",
         help="Convenience locale value. Sets both LANG and LC_ALL.",
     )
+    parser.add_argument(
+        "--openshot-arg",
+        action="append",
+        default=[],
+        metavar="ARG",
+        help="Extra argument passed to openshot-qt launch.py (repeatable; use --openshot-arg=--flag=value)",
+    )
     args = parser.parse_args()
 
     keyboard, mouse = try_import_pynput()
@@ -323,6 +333,7 @@ def main():
     if args.lang:
         cli_env["LANG"] = args.lang
         cli_env["LC_ALL"] = args.lang
+    cli_openshot_args = normalize_arg_list(args.openshot_arg, source_label="--openshot-arg")
     launch_env = {}
     launch_env.update(trace_env)
     launch_env.update(cli_env)
@@ -334,6 +345,7 @@ def main():
                 home_dir,
                 extra_env=launch_env or None,
                 openshot_root=args.openshot_root or None,
+                extra_args=cli_openshot_args or None,
             )
 
         window_id = wait_for_window(args.window_name, timeout=40.0)
@@ -399,7 +411,13 @@ def main():
     key_listener.join()
     mouse_listener.stop()
     monitor_thread.join(timeout=0.5)
-    meta = {"env": cli_env} if cli_env else None
+    meta = {}
+    if cli_env:
+        meta["env"] = cli_env
+    if cli_openshot_args:
+        meta["openshot_args"] = cli_openshot_args
+    if not meta:
+        meta = None
     rec.write(meta=meta)
     print(f"Wrote {len(rec.actions)} actions to {shlex.quote(str(rec.output))}")
     if not args.disable_trace:

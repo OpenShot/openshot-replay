@@ -12,6 +12,7 @@ from replay import (
     launch_openshot,
     load_actions_bundle,
     maximize_window,
+    normalize_arg_list,
     normalize_env_map,
     parse_env_assignments,
     reset_openshot_profile,
@@ -349,18 +350,8 @@ def assert_events_trace(expected_path, actual_path, float_tol=0.05):
     return {"events": len(exp_norm), "assertions": assertion_count}
 
 
-def derive_expected_trace_paths(case):
-    expected_updates = case.get("expected_updates")
-    expected_selections = case.get("expected_selections")
-    expected_events = case.get("expected_events")
-    if expected_updates and expected_selections and expected_events:
-        return (
-            Path(expected_updates).resolve(),
-            Path(expected_selections).resolve(),
-            Path(expected_events).resolve(),
-        )
-
-    base = Path(case["actions_file"]).name
+def derive_expected_trace_paths(actions_file):
+    base = Path(actions_file).name
     if base.endswith(".actions.json"):
         base = base[: -len(".actions.json")]
     else:
@@ -373,27 +364,16 @@ def derive_expected_trace_paths(case):
     )
 
 
-def build_case_from_actions(actions_file, override=None):
-    raw = override or {}
+def build_case_from_actions(actions_file):
     actions_file = Path(actions_file).resolve()
-    expected_updates, expected_selections, expected_events = derive_expected_trace_paths(
-        {
-            "actions_file": str(actions_file),
-            "expected_updates": raw.get("expected_updates"),
-            "expected_selections": raw.get("expected_selections"),
-            "expected_events": raw.get("expected_events"),
-        }
-    )
-    default_name = actions_file.stem.replace(".actions", "")
-    default_assert_events = expected_events.exists()
-    if "assert_events" in raw:
-        default_assert_events = bool(raw["assert_events"])
+    expected_updates, expected_selections, expected_events = derive_expected_trace_paths(actions_file)
+    case_name = actions_file.stem.replace(".actions", "")
     return {
-        "name": raw.get("name", default_name),
+        "name": case_name,
         "actions_file": actions_file,
-        "assert_updates": bool(raw.get("assert_updates", True)),
-        "assert_selections": bool(raw.get("assert_selections", True)),
-        "assert_events": default_assert_events,
+        "assert_updates": True,
+        "assert_selections": True,
+        "assert_events": expected_events.exists(),
         "expected_updates": expected_updates,
         "expected_selections": expected_selections,
         "expected_events": expected_events,
@@ -405,17 +385,9 @@ def discover_cases(cases_dir):
     if not actions_files:
         return []
 
-    # Optional per-case overrides (same base name), e.g. trim_clip.case.json
-    overrides = {}
-    for case_file in sorted(cases_dir.glob("*.case.json")):
-        raw = json.loads(case_file.read_text(encoding="utf-8"))
-        key = case_file.stem.replace(".case", "")
-        overrides[key] = raw
-
     cases = []
     for actions_file in actions_files:
-        key = actions_file.stem.replace(".actions", "")
-        cases.append(build_case_from_actions(actions_file, override=overrides.get(key)))
+        cases.append(build_case_from_actions(actions_file))
     return cases
 
 
@@ -452,7 +424,7 @@ def print_results_table(rows):
     print(sep)
 
 
-def run_case(case, home_dir, output_dir, window_name, speed, openshot_root, extra_env):
+def run_case(case, home_dir, output_dir, window_name, speed, openshot_root, extra_env, extra_openshot_args):
     reset_openshot_profile(home_dir)
     actual_updates = output_dir / f"{case['name']}.actual.updates.jsonl"
     actual_selections = output_dir / f"{case['name']}.actual.selections.jsonl"
@@ -463,6 +435,10 @@ def run_case(case, home_dir, output_dir, window_name, speed, openshot_root, extr
 
     actions, meta = load_actions_bundle(case["actions_file"])
     recorded_env = normalize_env_map(meta.get("env"), source_label=f"{case['actions_file']} meta.env")
+    recorded_openshot_args = normalize_arg_list(
+        meta.get("openshot_args"), source_label=f"{case['actions_file']} meta.openshot_args"
+    )
+    launch_openshot_args = list(recorded_openshot_args) + list(extra_openshot_args or [])
     env = {
         "OPENSHOT_UI_TRACE": "1",
         "OPENSHOT_UI_TRACE_UPDATES": str(actual_updates),
@@ -474,7 +450,12 @@ def run_case(case, home_dir, output_dir, window_name, speed, openshot_root, extr
     env.update(recorded_env)
     env.update(extra_env)
 
-    proc = launch_openshot(home_dir, extra_env=env, openshot_root=openshot_root)
+    proc = launch_openshot(
+        home_dir,
+        extra_env=env,
+        openshot_root=openshot_root,
+        extra_args=launch_openshot_args or None,
+    )
     try:
         wid = wait_for_window(window_name, timeout=40.0)
         focus_window(wid)
@@ -499,7 +480,7 @@ def main():
     parser.add_argument(
         "--cases",
         default=str((Path(__file__).resolve().parent / "cases").resolve()),
-        help="Directory containing *.actions.json (and optional *.case.json overrides)",
+        help="Directory containing *.actions.json",
     )
     parser.add_argument(
         "--home",
@@ -541,6 +522,13 @@ def main():
         default="",
         help="Convenience locale value for every case. Sets both LANG and LC_ALL.",
     )
+    parser.add_argument(
+        "--openshot-arg",
+        action="append",
+        default=[],
+        metavar="ARG",
+        help="Extra argument passed to openshot-qt launch.py for every case (repeatable; use --openshot-arg=--flag=value)",
+    )
     args = parser.parse_args()
     if args.speed <= 0:
         raise SystemExit("--speed must be > 0")
@@ -553,6 +541,7 @@ def main():
     if args.lang:
         cli_env["LANG"] = args.lang
         cli_env["LC_ALL"] = args.lang
+    cli_openshot_args = normalize_arg_list(args.openshot_arg, source_label="--openshot-arg")
 
     cases_dir = Path(args.cases).resolve()
     home_dir = Path(args.home).resolve()
@@ -582,6 +571,7 @@ def main():
                 args.speed,
                 args.openshot_root or None,
                 cli_env,
+                cli_openshot_args,
             )
 
             event_stats = {"events": 0, "assertions": 0}

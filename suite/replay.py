@@ -62,6 +62,19 @@ def normalize_env_map(raw, source_label="meta.env"):
     return out
 
 
+def normalize_arg_list(raw, source_label="meta.openshot_args"):
+    if raw is None:
+        return []
+    if not isinstance(raw, list):
+        raise ValueError(f"Invalid {source_label}; expected array")
+    out = []
+    for value in raw:
+        text = str(value).strip()
+        if text:
+            out.append(text)
+    return out
+
+
 def resolve_openshot_root(openshot_root=None):
     if openshot_root:
         root = Path(openshot_root).expanduser().resolve()
@@ -80,7 +93,7 @@ def resolve_openshot_root(openshot_root=None):
     return root
 
 
-def launch_openshot(home_dir, extra_env=None, openshot_root=None):
+def launch_openshot(home_dir, extra_env=None, openshot_root=None, extra_args=None):
     openshot_root = resolve_openshot_root(openshot_root)
     launch_py = openshot_root / "src" / "launch.py"
     env = os.environ.copy()
@@ -89,6 +102,8 @@ def launch_openshot(home_dir, extra_env=None, openshot_root=None):
         for k, v in extra_env.items():
             env[str(k)] = str(v)
     cmd = ["python3", str(launch_py)]
+    if extra_args:
+        cmd.extend(str(x) for x in extra_args)
     return subprocess.Popen(cmd, env=env)
 
 
@@ -830,6 +845,13 @@ def main():
         default="",
         help="Convenience locale value. Sets both LANG and LC_ALL.",
     )
+    parser.add_argument(
+        "--openshot-arg",
+        action="append",
+        default=[],
+        metavar="ARG",
+        help="Extra argument passed to openshot-qt launch.py (repeatable; use --openshot-arg=--flag=value)",
+    )
     args = parser.parse_args()
     if args.speed <= 0:
         raise SystemExit("--speed must be > 0")
@@ -848,6 +870,10 @@ def main():
     launch_env = {}
     launch_env.update(recorded_env)
     launch_env.update(cli_env)
+    recorded_openshot_args = normalize_arg_list(
+        meta.get("openshot_args"), source_label="actions meta.openshot_args"
+    )
+    launch_openshot_args = list(recorded_openshot_args) + list(args.openshot_arg)
     home_dir = Path(args.home).resolve()
     home_dir.mkdir(parents=True, exist_ok=True)
 
@@ -862,9 +888,10 @@ def main():
                 home_dir,
                 extra_env=launch_env or None,
                 openshot_root=args.openshot_root,
+                extra_args=launch_openshot_args or None,
             )
-        elif launch_env:
-            print("Warning: actions include environment metadata, but --no-launch cannot apply it.")
+        elif launch_env or launch_openshot_args:
+            print("Warning: actions metadata contains launch config, but --no-launch cannot apply it.")
 
         main_window = wait_for_window(args.window_name, timeout=40.0)
         focus_window(main_window)
