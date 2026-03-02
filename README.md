@@ -1,6 +1,18 @@
-# OpenShot Record/Replay Suite
+# OpenShot Replay Suite
 
-External UI record/replay/assertion tooling for OpenShot on Linux/X11.
+## Record it once. Replay it anytime. Catch UI regressions before users do.
+
+UI behavior can drift over time, and manual re-testing is slow and inconsistent. This suite gives you a repeatable way to capture real user flows, replay them quickly, and verify that OpenShot still behaves the same.
+
+It helps you:
+- Reproducing UI behavior quickly
+- Catching regressions in repeatable user flows
+- Comparing trace output against known-good baselines
+
+1. `record.py` captures your input actions and writes `*.actions.json`.
+2. OpenShot writes trace files (`events`, `updates`, `selections`) during recording.
+3. `replay.py` replays a single action file against OpenShot.
+4. `tests.py` discovers all cases, replays each one, and asserts actual traces match expected traces.
 
 ## Repository Layout
 
@@ -33,6 +45,8 @@ By default, scripts target `../openshot-qt`. Override with:
 Install:
 
 ```bash
+sudo apt update
+sudo apt install -y xdotool wmctrl python3 python3-pip
 python3 -m pip install --user pynput
 ```
 
