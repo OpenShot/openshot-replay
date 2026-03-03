@@ -255,61 +255,70 @@ def ensure_safe_focus(
     foreign_dialog_pattern=None,
 ):
     # Window-manager transitions (opening/closing native dialogs) can briefly
-    # report no active/focused window. Retry shortly before failing.
-    active_id = None
-    focused_pid = None
-    for _ in range(20):
+    # report wrong/empty focus metadata. Retry shortly before failing.
+    last_issue = "Cannot determine active window id"
+    for _ in range(60):
         active_id = get_active_window_id()
-        focused_pid = get_focused_window_pid()
-        if active_id is not None and focused_pid is not None:
-            break
-        time.sleep(0.02)
+        if active_id is None:
+            last_issue = "Cannot determine active window id"
+            time.sleep(0.02)
+            continue
 
-    if active_id is None:
-        raise ReplayAbort("Cannot determine active window id")
-    if focused_pid is None:
-        raise ReplayAbort("Cannot determine focused window PID")
-    if expected_pid is not None and int(focused_pid) != int(expected_pid):
-        raise ReplayAbort(
-            f"Focused window PID {focused_pid} does not match OpenShot PID {expected_pid}"
-        )
-    if expected_window_id is not None and str(active_id) != str(expected_window_id):
+        # Use the same active window snapshot for PID lookup to avoid races
+        # between separate getactivewindow calls during WM transitions.
+        focused_pid = get_window_pid(active_id)
+        if focused_pid is None:
+            last_issue = "Cannot determine focused window PID"
+            time.sleep(0.02)
+            continue
+
+        if expected_pid is not None and int(focused_pid) != int(expected_pid):
+            last_issue = f"Focused window PID {focused_pid} does not match OpenShot PID {expected_pid}"
+            time.sleep(0.02)
+            continue
+
+        if expected_window_id is None or str(active_id) == str(expected_window_id):
+            return active_id
+
         # Allow child/dialog windows as long as they belong to the same OpenShot process.
         if expected_pid is None:
-            raise ReplayAbort(
-                f"Active window id {active_id} does not match OpenShot window id {expected_window_id}"
-            )
+            last_issue = f"Active window id {active_id} does not match OpenShot window id {expected_window_id}"
+            time.sleep(0.02)
+            continue
         active_pid = get_window_pid(active_id)
-        if active_pid is None or int(active_pid) != int(expected_pid):
-            if not allow_foreign_dialogs:
-                raise ReplayAbort(
-                    f"Active window id {active_id} is not an OpenShot-owned dialog/window"
-                )
-            pattern = foreign_dialog_pattern or r"(open|choose|select).*(file|folder)|file.*(open|chooser)|portal"
-            class_pattern = r"(portal|xdg-desktop-portal|gtkfilechooser|nautilus|org\.gnome\.Nautilus|filechooser)"
+        if active_pid is not None and int(active_pid) == int(expected_pid):
+            return active_id
 
-            # Some native dialogs are briefly untitled on creation. Retry title/class probes.
-            wname = ""
-            wclass = ""
-            for _ in range(20):
-                wname = get_window_name(active_id)
-                wclass = get_window_class(active_id)
-                if wname or wclass:
-                    break
-                time.sleep(0.02)
+        if not allow_foreign_dialogs:
+            last_issue = f"Active window id {active_id} is not an OpenShot-owned dialog/window"
+            time.sleep(0.02)
+            continue
 
-            if wname and re.search(pattern, wname, flags=re.IGNORECASE):
-                return active_id
-            if wclass and re.search(class_pattern, wclass, flags=re.IGNORECASE):
-                return active_id
-            if not wname and not wclass:
-                raise ReplayAbort(
-                    f"Active window id {active_id} is foreign and has no readable title/class"
-                )
-            raise ReplayAbort(
-                f"Active foreign window rejected. title={wname!r} class={wclass!r}"
-            )
-    return active_id
+        pattern = foreign_dialog_pattern or r"(open|choose|select).*(file|folder)|file.*(open|chooser)|portal"
+        class_pattern = r"(portal|xdg-desktop-portal|gtkfilechooser|nautilus|org\.gnome\.Nautilus|filechooser)"
+
+        # Some native dialogs are briefly untitled on creation. Retry title/class probes.
+        wname = ""
+        wclass = ""
+        for _ in range(20):
+            wname = get_window_name(active_id)
+            wclass = get_window_class(active_id)
+            if wname or wclass:
+                break
+            time.sleep(0.02)
+
+        if wname and re.search(pattern, wname, flags=re.IGNORECASE):
+            return active_id
+        if wclass and re.search(class_pattern, wclass, flags=re.IGNORECASE):
+            return active_id
+
+        if not wname and not wclass:
+            last_issue = f"Active window id {active_id} is foreign and has no readable title/class"
+        else:
+            last_issue = f"Active foreign window rejected. title={wname!r} class={wclass!r}"
+        time.sleep(0.02)
+
+    raise ReplayAbort(last_issue)
 
 
 def parse_shell_kv(stdout):

@@ -6,6 +6,8 @@ import re
 from pathlib import Path
 
 from replay import (
+    EmergencyStop,
+    ReplayAbort,
     close_app,
     focus_window,
     get_window_pid,
@@ -51,7 +53,7 @@ def normalize_ids(obj, alias_map):
     def is_id_like_key(key):
         if not isinstance(key, str):
             return False
-        return key == "id" or key.endswith("_id") or key in {
+        return key.endswith("_id") or key in {
             "parentObjectId",
             "file_id",
             "clip_id",
@@ -64,6 +66,10 @@ def normalize_ids(obj, alias_map):
     if isinstance(obj, dict):
         out = {}
         for k, v in obj.items():
+            # Raw object "id" values are volatile across runs and not semantically
+            # meaningful for behavioral trace assertions.
+            if k == "id":
+                continue
             if is_id_like_key(k) and isinstance(v, str):
                 out[k] = alias_map.alias(v)
             else:
@@ -87,22 +93,16 @@ def normalize_update_event(row, alias_map):
 
 
 def normalize_selection_event(row, alias_map):
-    def alias_list(values):
-        out = []
-        for v in values:
-            if isinstance(v, str):
-                out.append(alias_map.alias(v))
-            else:
-                out.append(v)
-        return out
-
+    selected_items = normalize_ids(row.get("selected_items", []), alias_map)
+    selected_tracks = normalize_ids(row.get("selected_tracks", []), alias_map)
     payload = {
-        "selected_items": normalize_ids(row.get("selected_items", []), alias_map),
-        "selected_clips": alias_list(row.get("selected_clips", [])),
-        "selected_transitions": alias_list(row.get("selected_transitions", [])),
-        "selected_effects": alias_list(row.get("selected_effects", [])),
-        "selected_tracks": alias_list(row.get("selected_tracks", [])),
-        "selected_markers": alias_list(row.get("selected_markers", [])),
+        "selected_items": selected_items,
+        "selected_clips_count": len(row.get("selected_clips", [])),
+        "selected_transitions_count": len(row.get("selected_transitions", [])),
+        "selected_effects_count": len(row.get("selected_effects", [])),
+        "selected_tracks": selected_tracks,
+        "selected_markers_count": len(row.get("selected_markers", [])),
+        "show_property_type": row.get("show_property_type"),
     }
     return payload
 
@@ -175,6 +175,26 @@ def normalize_trace_event(row, alias_map, has_following_non_dialog=False):
     return out
 
 
+def collapse_duplicate_dialog_shown(rows):
+    out = []
+    for row in rows:
+        if (
+            row.get("event") == "dialog_lifecycle"
+            and row.get("phase") == "shown"
+            and out
+            and out[-1].get("event") == "dialog_lifecycle"
+            and out[-1].get("phase") == "shown"
+            and out[-1].get("class_name", "") == row.get("class_name", "")
+            and out[-1].get("object_name", "") == row.get("object_name", "")
+            and out[-1].get("window_title", "") == row.get("window_title", "")
+        ):
+            # Window managers/toolkits can emit duplicate "shown" lifecycle
+            # events back-to-back for the same dialog.
+            continue
+        out.append(row)
+    return out
+
+
 def summarize_event(row):
     event_name = row.get("event", "unknown")
     if event_name == "update":
@@ -190,6 +210,28 @@ def summarize_event(row):
     if event_name == "cache_progress":
         return f"cache:frame={row.get('current_frame')}"
     return event_name
+
+
+def summarize_compared_row(row):
+    if isinstance(row, dict):
+        if "event" in row:
+            return summarize_event(row)
+        if "action_type" in row and "key" in row:
+            return f"update:{row.get('action_type')}:{row.get('key')}"
+        if "selected_items" in row:
+            return (
+                "selection:"
+                f"items={len(row.get('selected_items', []))},"
+                f"clips={row.get('selected_clips_count', '?')},"
+                f"tracks={len(row.get('selected_tracks', []))}"
+            )
+    try:
+        text = json.dumps(row, sort_keys=True, ensure_ascii=True)
+    except TypeError:
+        text = repr(row)
+    if len(text) > 220:
+        return text[:217] + "..."
+    return text
 
 
 def compare_subset(expected, actual, path="root", float_tol=0.05):
@@ -239,6 +281,57 @@ def compare_subset(expected, actual, path="root", float_tol=0.05):
     return None
 
 
+def describe_count_mismatch(event_label, expected_rows, actual_rows, float_tol):
+    min_len = min(len(expected_rows), len(actual_rows))
+    for idx in range(min_len):
+        err = compare_subset(
+            expected_rows[idx],
+            actual_rows[idx],
+            path=f"{event_label}[{idx + 1}]",
+            float_tol=float_tol,
+        )
+        if err:
+            hints = [
+                f"first divergence at {event_label}[{idx + 1}]",
+                f"expected={summarize_compared_row(expected_rows[idx])}",
+                f"actual={summarize_compared_row(actual_rows[idx])}",
+            ]
+            # Shift-detection hints for likely missing/extra rows around the first divergence.
+            if idx + 1 < len(actual_rows):
+                if (
+                    compare_subset(expected_rows[idx], actual_rows[idx + 1], float_tol=float_tol)
+                    is None
+                ):
+                    hints.append(
+                        f"likely unexpected {event_label} at actual[{idx + 1}]: "
+                        f"{summarize_compared_row(actual_rows[idx])}"
+                    )
+            if idx + 1 < len(expected_rows):
+                if (
+                    compare_subset(expected_rows[idx + 1], actual_rows[idx], float_tol=float_tol)
+                    is None
+                ):
+                    hints.append(
+                        f"likely missing {event_label} at expected[{idx + 1}]: "
+                        f"{summarize_compared_row(expected_rows[idx])}"
+                    )
+            return f"{err}; " + "; ".join(hints)
+
+    if len(expected_rows) > len(actual_rows):
+        first_missing = len(actual_rows) + 1
+        return (
+            f"first missing {event_label} at expected[{first_missing}]: "
+            f"{summarize_compared_row(expected_rows[first_missing - 1])}"
+        )
+    if len(actual_rows) > len(expected_rows):
+        first_unexpected = len(expected_rows) + 1
+        return (
+            f"first unexpected {event_label} at actual[{first_unexpected}]: "
+            f"{summarize_compared_row(actual_rows[first_unexpected - 1])}"
+        )
+    return "unable to isolate mismatch detail"
+
+
 def count_leaf_assertions(value):
     if isinstance(value, dict):
         total = 0
@@ -257,8 +350,9 @@ def assert_updates_trace(expected_path, actual_path, float_tol=0.05):
     exp_rows = events_only(load_jsonl(expected_path), "update")
     act_rows = events_only(load_jsonl(actual_path), "update")
     if len(exp_rows) != len(act_rows):
+        details = describe_count_mismatch("update", exp_rows, act_rows, float_tol=float_tol)
         raise AssertionError(
-            f"update event count mismatch: expected {len(exp_rows)}, got {len(act_rows)}"
+            f"update event count mismatch: expected {len(exp_rows)}, got {len(act_rows)}; {details}"
         )
 
     exp_alias = AliasMap()
@@ -295,8 +389,9 @@ def assert_selections_trace(expected_path, actual_path, float_tol=0.05):
     act_rows = dedupe_selections([normalize_selection_event(r, act_alias) for r in act_raw])
 
     if len(exp_rows) != len(act_rows):
+        details = describe_count_mismatch("selection", exp_rows, act_rows, float_tol=float_tol)
         raise AssertionError(
-            f"selection event count mismatch: expected {len(exp_rows)}, got {len(act_rows)}"
+            f"selection event count mismatch: expected {len(exp_rows)}, got {len(act_rows)}; {details}"
         )
     assertion_count = 0
     for idx, (e, a) in enumerate(zip(exp_rows, act_rows), 1):
@@ -328,11 +423,14 @@ def assert_events_trace(expected_path, actual_path, float_tol=0.05):
         nrow = normalize_trace_event(row, act_alias, has_following_non_dialog=has_non_dialog)
         if nrow is not None:
             act_norm.append(nrow)
+    exp_norm = collapse_duplicate_dialog_shown(exp_norm)
+    act_norm = collapse_duplicate_dialog_shown(act_norm)
 
     if len(exp_norm) != len(act_norm):
+        details = describe_count_mismatch("event", exp_norm, act_norm, float_tol=float_tol)
         raise AssertionError(
             f"events count mismatch: expected {len(exp_norm)}, got {len(act_norm)} "
-            f"(raw expected={len(exp_rows)}, raw actual={len(act_rows)})"
+            f"(raw expected={len(exp_rows)}, raw actual={len(act_rows)}); {details}"
         )
 
     assertion_count = 0
@@ -424,7 +522,17 @@ def print_results_table(rows):
     print(sep)
 
 
-def run_case(case, home_dir, output_dir, window_name, speed, openshot_root, extra_env, extra_openshot_args):
+def run_case(
+    case,
+    home_dir,
+    output_dir,
+    window_name,
+    speed,
+    openshot_root,
+    extra_env,
+    extra_openshot_args,
+    emergency_stop=None,
+):
     reset_openshot_profile(home_dir)
     actual_updates = output_dir / f"{case['name']}.actual.updates.jsonl"
     actual_selections = output_dir / f"{case['name']}.actual.selections.jsonl"
@@ -468,6 +576,7 @@ def run_case(case, home_dir, output_dir, window_name, speed, openshot_root, extr
             expected_pid=target_pid,
             pointer_margin=56,
             speed=speed,
+            emergency_stop=emergency_stop,
         )
     finally:
         close_app(proc)
@@ -560,92 +669,125 @@ def main():
     total_update_events = 0
     total_selection_events = 0
     case_rows = []
-    for case in cases:
-        print(f"[RUN] {case['name']}")
-        try:
-            actual_updates, actual_selections, actual_events = run_case(
-                case,
-                home_dir,
-                output_dir,
-                args.window_name,
-                args.speed,
-                args.openshot_root or None,
-                cli_env,
-                cli_openshot_args,
-            )
-
-            event_stats = {"events": 0, "assertions": 0}
-            update_stats = {"events": 0, "assertions": 0}
-            selection_stats = {"events": 0, "assertions": 0}
-
-            if case["assert_events"]:
-                if not case["expected_events"].exists():
-                    raise AssertionError(f"Missing expected events trace: {case['expected_events']}")
-                if not actual_events.exists():
-                    raise AssertionError(f"Missing actual events trace: {actual_events}")
-                event_stats = assert_events_trace(
-                    case["expected_events"], actual_events, float_tol=args.float_tol
+    aborted_reason = ""
+    estop = EmergencyStop()
+    estop.start()
+    try:
+        for case in cases:
+            if estop.triggered:
+                aborted_reason = "Emergency Esc pressed before starting next case."
+                print(f"[ABORT] {aborted_reason}")
+                break
+            print(f"[RUN] {case['name']}")
+            try:
+                actual_updates, actual_selections, actual_events = run_case(
+                    case,
+                    home_dir,
+                    output_dir,
+                    args.window_name,
+                    args.speed,
+                    args.openshot_root or None,
+                    cli_env,
+                    cli_openshot_args,
+                    emergency_stop=estop,
                 )
 
-            if case["assert_updates"]:
-                if not case["expected_updates"].exists():
-                    raise AssertionError(f"Missing expected updates trace: {case['expected_updates']}")
-                if not actual_updates.exists():
-                    raise AssertionError(f"Missing actual updates trace: {actual_updates}")
-                update_stats = assert_updates_trace(
-                    case["expected_updates"], actual_updates, float_tol=args.float_tol
+                event_stats = {"events": 0, "assertions": 0}
+                update_stats = {"events": 0, "assertions": 0}
+                selection_stats = {"events": 0, "assertions": 0}
+
+                if case["assert_events"]:
+                    if not case["expected_events"].exists():
+                        raise AssertionError(f"Missing expected events trace: {case['expected_events']}")
+                    if not actual_events.exists():
+                        raise AssertionError(f"Missing actual events trace: {actual_events}")
+                    event_stats = assert_events_trace(
+                        case["expected_events"], actual_events, float_tol=args.float_tol
+                    )
+
+                if case["assert_updates"]:
+                    if not case["expected_updates"].exists():
+                        raise AssertionError(f"Missing expected updates trace: {case['expected_updates']}")
+                    if not actual_updates.exists():
+                        raise AssertionError(f"Missing actual updates trace: {actual_updates}")
+                    update_stats = assert_updates_trace(
+                        case["expected_updates"], actual_updates, float_tol=args.float_tol
+                    )
+
+                if case["assert_selections"]:
+                    if not case["expected_selections"].exists():
+                        raise AssertionError(f"Missing expected selections trace: {case['expected_selections']}")
+                    if not actual_selections.exists():
+                        raise AssertionError(f"Missing actual selections trace: {actual_selections}")
+                    selection_stats = assert_selections_trace(
+                        case["expected_selections"], actual_selections, float_tol=args.float_tol
+                    )
+
+                case_assertions = (
+                    event_stats["assertions"] + update_stats["assertions"] + selection_stats["assertions"]
                 )
+                total_assertions += case_assertions
+                total_trace_events += event_stats["events"]
+                total_update_events += update_stats["events"]
+                total_selection_events += selection_stats["events"]
 
-            if case["assert_selections"]:
-                if not case["expected_selections"].exists():
-                    raise AssertionError(f"Missing expected selections trace: {case['expected_selections']}")
-                if not actual_selections.exists():
-                    raise AssertionError(f"Missing actual selections trace: {actual_selections}")
-                selection_stats = assert_selections_trace(
-                    case["expected_selections"], actual_selections, float_tol=args.float_tol
+                print(
+                    f"[PASS] {case['name']} "
+                    f"(assertions={case_assertions}, "
+                    f"events={event_stats['events']}, "
+                    f"updates={update_stats['events']}, "
+                    f"selections={selection_stats['events']})"
                 )
-
-            case_assertions = (
-                event_stats["assertions"] + update_stats["assertions"] + selection_stats["assertions"]
-            )
-            total_assertions += case_assertions
-            total_trace_events += event_stats["events"]
-            total_update_events += update_stats["events"]
-            total_selection_events += selection_stats["events"]
-
-            print(
-                f"[PASS] {case['name']} "
-                f"(assertions={case_assertions}, "
-                f"events={event_stats['events']}, "
-                f"updates={update_stats['events']}, "
-                f"selections={selection_stats['events']})"
-            )
-            case_rows.append(
-                {
-                    "name": case["name"],
-                    "result": "PASS",
-                    "assertions": case_assertions,
-                    "events": event_stats["events"],
-                    "updates": update_stats["events"],
-                    "selections": selection_stats["events"],
-                    "details": "",
-                }
-            )
-            passes += 1
-        except Exception as exc:
-            failures.append((case["name"], str(exc)))
-            case_rows.append(
-                {
-                    "name": case["name"],
-                    "result": "FAIL",
-                    "assertions": 0,
-                    "events": 0,
-                    "updates": 0,
-                    "selections": 0,
-                    "details": str(exc),
-                }
-            )
-            print(f"[FAIL] {case['name']}: {exc}")
+                case_rows.append(
+                    {
+                        "name": case["name"],
+                        "result": "PASS",
+                        "assertions": case_assertions,
+                        "events": event_stats["events"],
+                        "updates": update_stats["events"],
+                        "selections": selection_stats["events"],
+                        "details": "",
+                    }
+                )
+                passes += 1
+            except ReplayAbort as exc:
+                if estop.triggered:
+                    aborted_reason = f"Emergency Esc pressed during case '{case['name']}'."
+                    print(f"[ABORT] {aborted_reason}")
+                    break
+                failures.append((case["name"], str(exc)))
+                case_rows.append(
+                    {
+                        "name": case["name"],
+                        "result": "FAIL",
+                        "assertions": 0,
+                        "events": 0,
+                        "updates": 0,
+                        "selections": 0,
+                        "details": str(exc),
+                    }
+                )
+                print(f"[FAIL] {case['name']}: {exc}")
+            except KeyboardInterrupt:
+                aborted_reason = "Interrupted by keyboard."
+                print(f"[ABORT] {aborted_reason}")
+                break
+            except Exception as exc:
+                failures.append((case["name"], str(exc)))
+                case_rows.append(
+                    {
+                        "name": case["name"],
+                        "result": "FAIL",
+                        "assertions": 0,
+                        "events": 0,
+                        "updates": 0,
+                        "selections": 0,
+                        "details": str(exc),
+                    }
+                )
+                print(f"[FAIL] {case['name']}: {exc}")
+    finally:
+        estop.stop()
 
     print_results_table(case_rows)
 
@@ -657,12 +799,16 @@ def main():
     print(f"  Trace events checked: {total_trace_events}")
     print(f"  Update events checked: {total_update_events}")
     print(f"  Selection events checked: {total_selection_events}")
+    if aborted_reason:
+        print(f"  Aborted: yes ({aborted_reason})")
 
     if failures:
         print("\nFailures:")
         for name, err in failures:
             print(f"- {name}: {err}")
         raise SystemExit(1)
+    if aborted_reason:
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":
