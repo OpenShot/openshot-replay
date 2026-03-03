@@ -124,6 +124,13 @@ python3 suite/record.py --output suite/cases/preview_qwidget.actions.json --open
 python3 suite/tests.py --cases suite/cases --openshot-root ../openshot-qt
 ```
 
+Run one or more specific cases:
+
+```bash
+python3 suite/tests.py --cases suite/cases --case clips_qwidget
+python3 suite/tests.py --cases suite/cases --case clips_qwidget.actions.json --case files_qwidget
+```
+
 Faster run:
 
 ```bash

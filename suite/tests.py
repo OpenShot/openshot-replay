@@ -489,6 +489,42 @@ def discover_cases(cases_dir):
     return cases
 
 
+def normalize_case_selector(value):
+    raw = str(value or "").strip()
+    if not raw:
+        raise ValueError("--case cannot be empty")
+    name = Path(raw).name
+    if name.endswith(".actions.json"):
+        return name[: -len(".actions.json")]
+    stem = Path(name).stem
+    if stem.endswith(".actions"):
+        return stem[: -len(".actions")]
+    return stem
+
+
+def filter_cases(cases, selectors):
+    if not selectors:
+        return cases
+
+    selected_names = []
+    seen = set()
+    for selector in selectors:
+        case_name = normalize_case_selector(selector)
+        if case_name not in seen:
+            selected_names.append(case_name)
+            seen.add(case_name)
+
+    cases_by_name = {case["name"]: case for case in cases}
+    missing = [name for name in selected_names if name not in cases_by_name]
+    if missing:
+        available = ", ".join(sorted(cases_by_name.keys()))
+        raise SystemExit(
+            f"Unknown --case value(s): {', '.join(missing)}. "
+            f"Available cases: {available}"
+        )
+    return [cases_by_name[name] for name in selected_names]
+
+
 def print_results_table(rows):
     headers = ["Case", "Result", "Assertions", "Events", "Updates", "Selections", "Details"]
     widths = [len(h) for h in headers]
@@ -638,6 +674,13 @@ def main():
         metavar="ARG",
         help="Extra argument passed to openshot-qt launch.py for every case (repeatable; use --openshot-arg=--flag=value)",
     )
+    parser.add_argument(
+        "--case",
+        action="append",
+        default=[],
+        metavar="CASE",
+        help="Run only selected case name(s) or *.actions.json filename(s) (repeatable)",
+    )
     args = parser.parse_args()
     if args.speed <= 0:
         raise SystemExit("--speed must be > 0")
@@ -661,6 +704,10 @@ def main():
     cases = discover_cases(cases_dir)
     if not cases:
         raise SystemExit(f"No *.actions.json files found in {cases_dir}")
+    try:
+        cases = filter_cases(cases, args.case)
+    except ValueError as exc:
+        raise SystemExit(str(exc))
 
     failures = []
     passes = 0
