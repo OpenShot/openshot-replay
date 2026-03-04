@@ -1,0 +1,6963 @@
+{
+  "actions": [
+    {
+      "action": "sleep",
+      "seconds": 5.0379
+    },
+    {
+      "action": "move",
+      "x": 666,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 693,
+      "y": 924
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 797,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 913,
+      "y": 888
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 985,
+      "y": 872
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1027,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1049,
+      "y": 832
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 1063,
+      "y": 810
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1075,
+      "y": 792
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1089,
+      "y": 770
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1100,
+      "y": 752
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1112,
+      "y": 732
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1122,
+      "y": 712
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1134,
+      "y": 695
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1141,
+      "y": 681
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0172
+    },
+    {
+      "action": "move",
+      "x": 1153,
+      "y": 663
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0178
+    },
+    {
+      "action": "move",
+      "x": 1161,
+      "y": 650
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 1167,
+      "y": 637
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1171,
+      "y": 629
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 1178,
+      "y": 614
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1182,
+      "y": 606
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 1186,
+      "y": 597
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 1192,
+      "y": 588
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0429
+    },
+    {
+      "action": "move",
+      "x": 1197,
+      "y": 580
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 1202,
+      "y": 572
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0441
+    },
+    {
+      "action": "move",
+      "x": 1208,
+      "y": 563
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.052
+    },
+    {
+      "action": "move",
+      "x": 1214,
+      "y": 556
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 1219,
+      "y": 548
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0269
+    },
+    {
+      "action": "move",
+      "x": 1227,
+      "y": 537
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.052
+    },
+    {
+      "action": "move",
+      "x": 1232,
+      "y": 529
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 1236,
+      "y": 521
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0352
+    },
+    {
+      "action": "move",
+      "x": 1241,
+      "y": 513
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0619
+    },
+    {
+      "action": "move",
+      "x": 1245,
+      "y": 505
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.052
+    },
+    {
+      "action": "move",
+      "x": 1246,
+      "y": 502
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0707
+    },
+    {
+      "action": "move",
+      "x": 1248,
+      "y": 499
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2101
+    },
+    {
+      "action": "move",
+      "x": 1248,
+      "y": 499
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.3406
+    },
+    {
+      "action": "move",
+      "x": 1243,
+      "y": 499
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 1210,
+      "y": 499
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1180,
+      "y": 495
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1154,
+      "y": 489
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1126,
+      "y": 481
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 1098,
+      "y": 473
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 1066,
+      "y": 463
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1034,
+      "y": 453
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1000,
+      "y": 441
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 976,
+      "y": 433
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 954,
+      "y": 427
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 933,
+      "y": 421
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.007
+    },
+    {
+      "action": "move",
+      "x": 903,
+      "y": 414
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 884,
+      "y": 410
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 868,
+      "y": 406
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 850,
+      "y": 401
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 825,
+      "y": 396
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 801,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 775,
+      "y": 388
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 747,
+      "y": 386
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0093
+    },
+    {
+      "action": "move",
+      "x": 734,
+      "y": 384
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0085
+    },
+    {
+      "action": "move",
+      "x": 711,
+      "y": 382
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0093
+    },
+    {
+      "action": "move",
+      "x": 698,
+      "y": 381
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 673,
+      "y": 379
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 643,
+      "y": 377
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 628,
+      "y": 375
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 597,
+      "y": 373
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 581,
+      "y": 371
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.01
+    },
+    {
+      "action": "move",
+      "x": 569,
+      "y": 370
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 540,
+      "y": 368
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 527,
+      "y": 366
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 499,
+      "y": 364
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 486,
+      "y": 362
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 476,
+      "y": 360
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 360
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 442,
+      "y": 359
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0544
+    },
+    {
+      "action": "move",
+      "x": 442,
+      "y": 359
+    },
+    {
+      "action": "mousedown",
+      "button": 3
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0861
+    },
+    {
+      "action": "move",
+      "x": 442,
+      "y": 359
+    },
+    {
+      "action": "mouseup",
+      "button": 3
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1146
+    },
+    {
+      "action": "move",
+      "x": 443,
+      "y": 359
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 363
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0175
+    },
+    {
+      "action": "move",
+      "x": 468,
+      "y": 365
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 477,
+      "y": 368
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0174
+    },
+    {
+      "action": "move",
+      "x": 488,
+      "y": 371
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 497,
+      "y": 373
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.3596
+    },
+    {
+      "action": "move",
+      "x": 503,
+      "y": 372
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0187
+    },
+    {
+      "action": "move",
+      "x": 491,
+      "y": 354
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0
+    },
+    {
+      "action": "move",
+      "x": 483,
+      "y": 341
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0076
+    },
+    {
+      "action": "move",
+      "x": 473,
+      "y": 323
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 463,
+      "y": 305
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0082
+    },
+    {
+      "action": "move",
+      "x": 456,
+      "y": 293
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 445,
+      "y": 275
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 434,
+      "y": 260
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 425,
+      "y": 245
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 414,
+      "y": 233
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 403,
+      "y": 219
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0167
+    },
+    {
+      "action": "move",
+      "x": 395,
+      "y": 209
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0185
+    },
+    {
+      "action": "move",
+      "x": 388,
+      "y": 197
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 382,
+      "y": 188
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 378,
+      "y": 179
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 374,
+      "y": 171
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 366,
+      "y": 163
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0707
+    },
+    {
+      "action": "move",
+      "x": 365,
+      "y": 161
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0254
+    },
+    {
+      "action": "move",
+      "x": 357,
+      "y": 152
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.044
+    },
+    {
+      "action": "move",
+      "x": 352,
+      "y": 144
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0614
+    },
+    {
+      "action": "move",
+      "x": 352,
+      "y": 143
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0967
+    },
+    {
+      "action": "move",
+      "x": 352,
+      "y": 143
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0962
+    },
+    {
+      "action": "move",
+      "x": 352,
+      "y": 142
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 354,
+      "y": 133
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0518
+    },
+    {
+      "action": "move",
+      "x": 357,
+      "y": 124
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0531
+    },
+    {
+      "action": "move",
+      "x": 361,
+      "y": 115
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0614
+    },
+    {
+      "action": "move",
+      "x": 361,
+      "y": 109
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0273
+    },
+    {
+      "action": "move",
+      "x": 361,
+      "y": 109
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0955
+    },
+    {
+      "action": "move",
+      "x": 361,
+      "y": 109
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.185
+    },
+    {
+      "action": "move",
+      "x": 362,
+      "y": 111
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0067
+    },
+    {
+      "action": "move",
+      "x": 381,
+      "y": 140
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0095
+    },
+    {
+      "action": "move",
+      "x": 391,
+      "y": 156
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 405,
+      "y": 179
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 419,
+      "y": 203
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 435,
+      "y": 231
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 449,
+      "y": 257
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0083
+    },
+    {
+      "action": "move",
+      "x": 463,
+      "y": 283
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0085
+    },
+    {
+      "action": "move",
+      "x": 481,
+      "y": 315
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 501,
+      "y": 349
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 515,
+      "y": 371
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 533,
+      "y": 405
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 547,
+      "y": 429
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 561,
+      "y": 455
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 575,
+      "y": 481
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 587,
+      "y": 507
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0105
+    },
+    {
+      "action": "move",
+      "x": 601,
+      "y": 531
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0075
+    },
+    {
+      "action": "move",
+      "x": 611,
+      "y": 557
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 621,
+      "y": 581
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 631,
+      "y": 605
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 643,
+      "y": 629
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 655,
+      "y": 653
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 660,
+      "y": 663
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 671,
+      "y": 683
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 687,
+      "y": 705
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 692,
+      "y": 714
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.01
+    },
+    {
+      "action": "move",
+      "x": 702,
+      "y": 726
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0071
+    },
+    {
+      "action": "move",
+      "x": 711,
+      "y": 734
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 723,
+      "y": 745
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 734,
+      "y": 751
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 742,
+      "y": 756
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0257
+    },
+    {
+      "action": "move",
+      "x": 750,
+      "y": 758
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0622
+    },
+    {
+      "action": "move",
+      "x": 752,
+      "y": 758
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.9724
+    },
+    {
+      "action": "key",
+      "key": "Return"
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.5237
+    },
+    {
+      "action": "move",
+      "x": 752,
+      "y": 755
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0001
+    },
+    {
+      "action": "move",
+      "x": 749,
+      "y": 741
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 721,
+      "y": 675
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 701,
+      "y": 637
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 689,
+      "y": 611
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 677,
+      "y": 585
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 665,
+      "y": 557
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 659,
+      "y": 537
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 654,
+      "y": 519
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 648,
+      "y": 500
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0102
+    },
+    {
+      "action": "move",
+      "x": 642,
+      "y": 483
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0159
+    },
+    {
+      "action": "move",
+      "x": 637,
+      "y": 468
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 633,
+      "y": 460
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0707
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 456
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0073
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 445
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 435
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 427
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 414
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0174
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 405
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0357
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 397
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.043
+    },
+    {
+      "action": "move",
+      "x": 637,
+      "y": 388
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0258
+    },
+    {
+      "action": "move",
+      "x": 645,
+      "y": 377
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.027
+    },
+    {
+      "action": "move",
+      "x": 651,
+      "y": 367
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0251
+    },
+    {
+      "action": "move",
+      "x": 658,
+      "y": 354
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0189
+    },
+    {
+      "action": "move",
+      "x": 663,
+      "y": 342
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0168
+    },
+    {
+      "action": "move",
+      "x": 666,
+      "y": 331
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 667,
+      "y": 322
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0443
+    },
+    {
+      "action": "move",
+      "x": 668,
+      "y": 314
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0427
+    },
+    {
+      "action": "move",
+      "x": 668,
+      "y": 305
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0531
+    },
+    {
+      "action": "move",
+      "x": 668,
+      "y": 298
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0522
+    },
+    {
+      "action": "move",
+      "x": 665,
+      "y": 292
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.088
+    },
+    {
+      "action": "move",
+      "x": 664,
+      "y": 289
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0699
+    },
+    {
+      "action": "move",
+      "x": 664,
+      "y": 289
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1054
+    },
+    {
+      "action": "move",
+      "x": 664,
+      "y": 291
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 658,
+      "y": 319
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 654,
+      "y": 333
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0075
+    },
+    {
+      "action": "move",
+      "x": 651,
+      "y": 344
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 650,
+      "y": 355
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 648,
+      "y": 363
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0069
+    },
+    {
+      "action": "move",
+      "x": 647,
+      "y": 375
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.01
+    },
+    {
+      "action": "move",
+      "x": 647,
+      "y": 388
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0082
+    },
+    {
+      "action": "move",
+      "x": 647,
+      "y": 401
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 647,
+      "y": 409
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 645,
+      "y": 423
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 644,
+      "y": 432
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 644,
+      "y": 440
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 642,
+      "y": 452
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 460
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 474
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 484
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 498
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 508
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 516
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0082
+    },
+    {
+      "action": "move",
+      "x": 641,
+      "y": 524
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 642,
+      "y": 533
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0358
+    },
+    {
+      "action": "move",
+      "x": 644,
+      "y": 542
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0602
+    },
+    {
+      "action": "move",
+      "x": 648,
+      "y": 550
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0531
+    },
+    {
+      "action": "move",
+      "x": 652,
+      "y": 555
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0779
+    },
+    {
+      "action": "keydown",
+      "key": "Shift_L"
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1154
+    },
+    {
+      "action": "move",
+      "x": 653,
+      "y": 557
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.078
+    },
+    {
+      "action": "move",
+      "x": 653,
+      "y": 557
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1036
+    },
+    {
+      "action": "keyup",
+      "key": "Shift_L"
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0023
+    },
+    {
+      "action": "move",
+      "x": 655,
+      "y": 557
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 676,
+      "y": 548
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0069
+    },
+    {
+      "action": "move",
+      "x": 703,
+      "y": 536
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0097
+    },
+    {
+      "action": "move",
+      "x": 729,
+      "y": 526
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 767,
+      "y": 512
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 809,
+      "y": 500
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0102
+    },
+    {
+      "action": "move",
+      "x": 847,
+      "y": 486
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0067
+    },
+    {
+      "action": "move",
+      "x": 909,
+      "y": 468
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 963,
+      "y": 450
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.01
+    },
+    {
+      "action": "move",
+      "x": 1003,
+      "y": 438
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0094
+    },
+    {
+      "action": "move",
+      "x": 1059,
+      "y": 420
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1113,
+      "y": 402
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1165,
+      "y": 384
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1199,
+      "y": 372
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1249,
+      "y": 354
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1279,
+      "y": 340
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 1309,
+      "y": 328
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 1341,
+      "y": 312
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1365,
+      "y": 298
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1377,
+      "y": 290
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 1387,
+      "y": 284
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 1396,
+      "y": 276
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 1407,
+      "y": 265
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0251
+    },
+    {
+      "action": "move",
+      "x": 1414,
+      "y": 257
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0351
+    },
+    {
+      "action": "move",
+      "x": 1422,
+      "y": 247
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0257
+    },
+    {
+      "action": "move",
+      "x": 1431,
+      "y": 237
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.028
+    },
+    {
+      "action": "move",
+      "x": 1440,
+      "y": 227
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0249
+    },
+    {
+      "action": "move",
+      "x": 1447,
+      "y": 216
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0261
+    },
+    {
+      "action": "move",
+      "x": 1453,
+      "y": 207
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 1457,
+      "y": 198
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 1464,
+      "y": 189
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0361
+    },
+    {
+      "action": "move",
+      "x": 1475,
+      "y": 178
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0247
+    },
+    {
+      "action": "move",
+      "x": 1486,
+      "y": 172
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 1498,
+      "y": 167
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1506,
+      "y": 164
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1514,
+      "y": 163
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.01
+    },
+    {
+      "action": "move",
+      "x": 1522,
+      "y": 160
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 1532,
+      "y": 159
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0168
+    },
+    {
+      "action": "move",
+      "x": 1540,
+      "y": 157
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2197
+    },
+    {
+      "action": "move",
+      "x": 1546,
+      "y": 157
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0281
+    },
+    {
+      "action": "move",
+      "x": 1546,
+      "y": 160
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0674
+    },
+    {
+      "action": "move",
+      "x": 1547,
+      "y": 160
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.21
+    },
+    {
+      "action": "move",
+      "x": 1545,
+      "y": 160
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 1516,
+      "y": 156
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1492,
+      "y": 150
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1468,
+      "y": 144
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1438,
+      "y": 136
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1402,
+      "y": 126
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 1368,
+      "y": 116
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0071
+    },
+    {
+      "action": "move",
+      "x": 1334,
+      "y": 102
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0103
+    },
+    {
+      "action": "move",
+      "x": 1296,
+      "y": 88
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1254,
+      "y": 72
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0095
+    },
+    {
+      "action": "move",
+      "x": 1226,
+      "y": 60
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0085
+    },
+    {
+      "action": "move",
+      "x": 1182,
+      "y": 40
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 1154,
+      "y": 28
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1124,
+      "y": 16
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1094,
+      "y": 8
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1050,
+      "y": 0
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1031,
+      "y": 0
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 1006,
+      "y": 0
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 994,
+      "y": 0
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 986,
+      "y": 0
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.027
+    },
+    {
+      "action": "move",
+      "x": 978,
+      "y": 3
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 970,
+      "y": 6
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 962,
+      "y": 10
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 949,
+      "y": 18
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 937,
+      "y": 27
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 921,
+      "y": 40
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 908,
+      "y": 52
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0082
+    },
+    {
+      "action": "move",
+      "x": 897,
+      "y": 63
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 883,
+      "y": 73
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 866,
+      "y": 86
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 848,
+      "y": 100
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 828,
+      "y": 114
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 808,
+      "y": 128
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 786,
+      "y": 140
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 766,
+      "y": 154
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 753,
+      "y": 165
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 738,
+      "y": 176
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 727,
+      "y": 187
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 711,
+      "y": 201
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 692,
+      "y": 221
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 682,
+      "y": 232
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 673,
+      "y": 240
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0001
+    },
+    {
+      "action": "move",
+      "x": 668,
+      "y": 248
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 656,
+      "y": 264
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 647,
+      "y": 278
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0117
+    },
+    {
+      "action": "move",
+      "x": 634,
+      "y": 298
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0063
+    },
+    {
+      "action": "move",
+      "x": 626,
+      "y": 309
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 618,
+      "y": 320
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 612,
+      "y": 332
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 594,
+      "y": 359
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 589,
+      "y": 370
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0069
+    },
+    {
+      "action": "move",
+      "x": 580,
+      "y": 385
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 577,
+      "y": 396
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.5684
+    },
+    {
+      "action": "move",
+      "x": 574,
+      "y": 402
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0525
+    },
+    {
+      "action": "move",
+      "x": 566,
+      "y": 403
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0521
+    },
+    {
+      "action": "move",
+      "x": 561,
+      "y": 400
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0531
+    },
+    {
+      "action": "move",
+      "x": 556,
+      "y": 397
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 546,
+      "y": 396
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 536,
+      "y": 394
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 525,
+      "y": 393
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0361
+    },
+    {
+      "action": "move",
+      "x": 517,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0339
+    },
+    {
+      "action": "move",
+      "x": 509,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0261
+    },
+    {
+      "action": "move",
+      "x": 501,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0349
+    },
+    {
+      "action": "move",
+      "x": 493,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0531
+    },
+    {
+      "action": "move",
+      "x": 489,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 480,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 472,
+      "y": 392
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.036
+    },
+    {
+      "action": "move",
+      "x": 463,
+      "y": 390
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1042
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 388
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 451,
+      "y": 378
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0439
+    },
+    {
+      "action": "move",
+      "x": 444,
+      "y": 370
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0518
+    },
+    {
+      "action": "move",
+      "x": 442,
+      "y": 363
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0529
+    },
+    {
+      "action": "move",
+      "x": 440,
+      "y": 355
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.08
+    },
+    {
+      "action": "move",
+      "x": 440,
+      "y": 353
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0957
+    },
+    {
+      "action": "move",
+      "x": 440,
+      "y": 354
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0085
+    },
+    {
+      "action": "move",
+      "x": 442,
+      "y": 363
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 443,
+      "y": 371
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 446,
+      "y": 379
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 447,
+      "y": 387
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 451,
+      "y": 406
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 456,
+      "y": 427
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 438
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 447
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 459,
+      "y": 462
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 460,
+      "y": 474
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 460,
+      "y": 483
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0068
+    },
+    {
+      "action": "move",
+      "x": 462,
+      "y": 496
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 462,
+      "y": 509
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 462,
+      "y": 524
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 462,
+      "y": 544
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 462,
+      "y": 561
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 460,
+      "y": 581
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 460,
+      "y": 589
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 460,
+      "y": 606
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 628
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 636
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 651
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0178
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 673
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 691
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0172
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 699
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 707
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 723
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 731
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 744
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 752
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 763
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0189
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 772
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.016
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 781
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0183
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 794
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0187
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 804
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0253
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 815
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0258
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 825
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 834
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 844
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 862
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 871
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.028
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 879
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.025
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 887
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 457,
+      "y": 895
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.7703
+    },
+    {
+      "action": "move",
+      "x": 455,
+      "y": 898
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 446,
+      "y": 901
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0358
+    },
+    {
+      "action": "move",
+      "x": 438,
+      "y": 903
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0339
+    },
+    {
+      "action": "move",
+      "x": 428,
+      "y": 904
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 420,
+      "y": 905
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 411,
+      "y": 906
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0271
+    },
+    {
+      "action": "move",
+      "x": 402,
+      "y": 906
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0269
+    },
+    {
+      "action": "move",
+      "x": 392,
+      "y": 907
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0163
+    },
+    {
+      "action": "move",
+      "x": 380,
+      "y": 907
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0176
+    },
+    {
+      "action": "move",
+      "x": 370,
+      "y": 908
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 361,
+      "y": 908
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0098
+    },
+    {
+      "action": "move",
+      "x": 353,
+      "y": 908
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 343,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 330,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 320,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.027
+    },
+    {
+      "action": "move",
+      "x": 308,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0262
+    },
+    {
+      "action": "move",
+      "x": 294,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0247
+    },
+    {
+      "action": "move",
+      "x": 285,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 277,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.036
+    },
+    {
+      "action": "move",
+      "x": 269,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 261,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.044
+    },
+    {
+      "action": "move",
+      "x": 252,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0431
+    },
+    {
+      "action": "move",
+      "x": 243,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0439
+    },
+    {
+      "action": "move",
+      "x": 234,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1755
+    },
+    {
+      "action": "move",
+      "x": 230,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0529
+    },
+    {
+      "action": "move",
+      "x": 219,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0336
+    },
+    {
+      "action": "move",
+      "x": 211,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0532
+    },
+    {
+      "action": "move",
+      "x": 203,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2026
+    },
+    {
+      "action": "move",
+      "x": 202,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0517
+    },
+    {
+      "action": "move",
+      "x": 194,
+      "y": 911
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0437
+    },
+    {
+      "action": "move",
+      "x": 186,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.052
+    },
+    {
+      "action": "move",
+      "x": 178,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0532
+    },
+    {
+      "action": "move",
+      "x": 172,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1928
+    },
+    {
+      "action": "move",
+      "x": 168,
+      "y": 912
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.3149
+    },
+    {
+      "action": "move",
+      "x": 168,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 178,
+      "y": 914
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0249
+    },
+    {
+      "action": "move",
+      "x": 191,
+      "y": 914
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 199,
+      "y": 914
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 212,
+      "y": 914
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 220,
+      "y": 914
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0164
+    },
+    {
+      "action": "move",
+      "x": 234,
+      "y": 916
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 242,
+      "y": 916
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0164
+    },
+    {
+      "action": "move",
+      "x": 254,
+      "y": 916
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0184
+    },
+    {
+      "action": "move",
+      "x": 262,
+      "y": 917
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0176
+    },
+    {
+      "action": "move",
+      "x": 271,
+      "y": 917
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0262
+    },
+    {
+      "action": "move",
+      "x": 281,
+      "y": 918
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0168
+    },
+    {
+      "action": "move",
+      "x": 290,
+      "y": 919
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 307,
+      "y": 919
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0172
+    },
+    {
+      "action": "move",
+      "x": 317,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0178
+    },
+    {
+      "action": "move",
+      "x": 327,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 336,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0269
+    },
+    {
+      "action": "move",
+      "x": 346,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0522
+    },
+    {
+      "action": "move",
+      "x": 353,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0518
+    },
+    {
+      "action": "move",
+      "x": 356,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0441
+    },
+    {
+      "action": "move",
+      "x": 364,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0439
+    },
+    {
+      "action": "move",
+      "x": 373,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0349
+    },
+    {
+      "action": "move",
+      "x": 381,
+      "y": 921
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0522
+    },
+    {
+      "action": "move",
+      "x": 388,
+      "y": 921
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0351
+    },
+    {
+      "action": "move",
+      "x": 399,
+      "y": 922
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0278
+    },
+    {
+      "action": "move",
+      "x": 409,
+      "y": 923
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0161
+    },
+    {
+      "action": "move",
+      "x": 419,
+      "y": 924
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 427,
+      "y": 924
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 438,
+      "y": 926
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 449,
+      "y": 927
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.027
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 928
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 470,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 478,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 486,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 495,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0167
+    },
+    {
+      "action": "move",
+      "x": 503,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 516,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 526,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 536,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 546,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 554,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0168
+    },
+    {
+      "action": "move",
+      "x": 564,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 573,
+      "y": 928
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 583,
+      "y": 927
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0183
+    },
+    {
+      "action": "move",
+      "x": 594,
+      "y": 927
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0336
+    },
+    {
+      "action": "move",
+      "x": 604,
+      "y": 926
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 613,
+      "y": 926
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0272
+    },
+    {
+      "action": "move",
+      "x": 624,
+      "y": 926
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0265
+    },
+    {
+      "action": "move",
+      "x": 632,
+      "y": 925
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 640,
+      "y": 925
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 650,
+      "y": 924
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0269
+    },
+    {
+      "action": "move",
+      "x": 660,
+      "y": 924
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 673,
+      "y": 921
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 681,
+      "y": 921
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0104
+    },
+    {
+      "action": "move",
+      "x": 689,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0082
+    },
+    {
+      "action": "move",
+      "x": 697,
+      "y": 918
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 707,
+      "y": 916
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.007
+    },
+    {
+      "action": "move",
+      "x": 717,
+      "y": 913
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 730,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0102
+    },
+    {
+      "action": "move",
+      "x": 742,
+      "y": 905
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0068
+    },
+    {
+      "action": "move",
+      "x": 754,
+      "y": 902
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 765,
+      "y": 897
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 775,
+      "y": 893
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 786,
+      "y": 886
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0177
+    },
+    {
+      "action": "move",
+      "x": 794,
+      "y": 879
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0262
+    },
+    {
+      "action": "move",
+      "x": 803,
+      "y": 870
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 809,
+      "y": 862
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 814,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.044
+    },
+    {
+      "action": "move",
+      "x": 818,
+      "y": 846
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.053
+    },
+    {
+      "action": "move",
+      "x": 822,
+      "y": 839
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0521
+    },
+    {
+      "action": "move",
+      "x": 825,
+      "y": 832
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0536
+    },
+    {
+      "action": "move",
+      "x": 827,
+      "y": 828
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0699
+    },
+    {
+      "action": "move",
+      "x": 828,
+      "y": 826
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1144
+    },
+    {
+      "action": "move",
+      "x": 831,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0073
+    },
+    {
+      "action": "move",
+      "x": 844,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 853,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 865,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0106
+    },
+    {
+      "action": "move",
+      "x": 877,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0052
+    },
+    {
+      "action": "move",
+      "x": 892,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 911,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 931,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 955,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0083
+    },
+    {
+      "action": "move",
+      "x": 979,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 996,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0103
+    },
+    {
+      "action": "move",
+      "x": 1008,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1023,
+      "y": 826
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 1044,
+      "y": 828
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 1059,
+      "y": 828
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0096
+    },
+    {
+      "action": "move",
+      "x": 1071,
+      "y": 828
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0075
+    },
+    {
+      "action": "move",
+      "x": 1084,
+      "y": 828
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 1104,
+      "y": 828
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 1117,
+      "y": 830
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 1132,
+      "y": 830
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0103
+    },
+    {
+      "action": "move",
+      "x": 1147,
+      "y": 830
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 1158,
+      "y": 830
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 1166,
+      "y": 830
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.027
+    },
+    {
+      "action": "move",
+      "x": 1174,
+      "y": 830
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 1182,
+      "y": 831
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0257
+    },
+    {
+      "action": "move",
+      "x": 1191,
+      "y": 831
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2544
+    },
+    {
+      "action": "move",
+      "x": 1194,
+      "y": 832
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1183,
+      "y": 832
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 1171,
+      "y": 833
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 1157,
+      "y": 835
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1147,
+      "y": 836
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 1126,
+      "y": 840
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1108,
+      "y": 840
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1089,
+      "y": 843
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1068,
+      "y": 843
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 1058,
+      "y": 845
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 1040,
+      "y": 846
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 1016,
+      "y": 846
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0096
+    },
+    {
+      "action": "move",
+      "x": 992,
+      "y": 848
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0077
+    },
+    {
+      "action": "move",
+      "x": 982,
+      "y": 848
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 959,
+      "y": 850
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 931,
+      "y": 850
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 918,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 890,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 874,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 842,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 826,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 792,
+      "y": 852
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 774,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 741,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0095
+    },
+    {
+      "action": "move",
+      "x": 724,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 710,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0086
+    },
+    {
+      "action": "move",
+      "x": 675,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 660,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 646,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0068
+    },
+    {
+      "action": "move",
+      "x": 611,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 592,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 576,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 562,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0073
+    },
+    {
+      "action": "move",
+      "x": 529,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 514,
+      "y": 854
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 492,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 484,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 473,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 464,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 455,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0522
+    },
+    {
+      "action": "move",
+      "x": 450,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.149
+    },
+    {
+      "action": "move",
+      "x": 450,
+      "y": 856
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0609
+    },
+    {
+      "action": "move",
+      "x": 450,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0887
+    },
+    {
+      "action": "move",
+      "x": 450,
+      "y": 856
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0162
+    },
+    {
+      "action": "move",
+      "x": 460,
+      "y": 861
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 469,
+      "y": 865
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 480,
+      "y": 869
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 489,
+      "y": 872
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 497,
+      "y": 876
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0183
+    },
+    {
+      "action": "move",
+      "x": 510,
+      "y": 881
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 519,
+      "y": 886
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0455
+    },
+    {
+      "action": "move",
+      "x": 527,
+      "y": 894
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0336
+    },
+    {
+      "action": "move",
+      "x": 531,
+      "y": 904
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0445
+    },
+    {
+      "action": "move",
+      "x": 535,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0777
+    },
+    {
+      "action": "move",
+      "x": 536,
+      "y": 913
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0267
+    },
+    {
+      "action": "move",
+      "x": 545,
+      "y": 919
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0521
+    },
+    {
+      "action": "move",
+      "x": 552,
+      "y": 923
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0527
+    },
+    {
+      "action": "move",
+      "x": 557,
+      "y": 926
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0614
+    },
+    {
+      "action": "move",
+      "x": 559,
+      "y": 926
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 570,
+      "y": 928
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 580,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 589,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0162
+    },
+    {
+      "action": "move",
+      "x": 603,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.019
+    },
+    {
+      "action": "move",
+      "x": 612,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0068
+    },
+    {
+      "action": "move",
+      "x": 623,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 635,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 644,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 653,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0187
+    },
+    {
+      "action": "move",
+      "x": 661,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 676,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 687,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0168
+    },
+    {
+      "action": "move",
+      "x": 699,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 714,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 723,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 735,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 743,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 756,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 778,
+      "y": 932
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 786,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 798,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 809,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 821,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 832,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 844,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 854,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 864,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0258
+    },
+    {
+      "action": "move",
+      "x": 872,
+      "y": 930
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1066
+    },
+    {
+      "action": "move",
+      "x": 873,
+      "y": 930
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.3584
+    },
+    {
+      "action": "move",
+      "x": 875,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 886,
+      "y": 927
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0344
+    },
+    {
+      "action": "move",
+      "x": 896,
+      "y": 924
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0518
+    },
+    {
+      "action": "move",
+      "x": 902,
+      "y": 921
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0533
+    },
+    {
+      "action": "move",
+      "x": 903,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0699
+    },
+    {
+      "action": "move",
+      "x": 905,
+      "y": 917
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0625
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 917
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1229
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 919
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0076
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 928
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0429
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 936
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0349
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 944
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.053
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 950
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0804
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 957
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0506
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 961
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1315
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 961
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2008
+    },
+    {
+      "action": "move",
+      "x": 907,
+      "y": 961
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0529
+    },
+    {
+      "action": "move",
+      "x": 912,
+      "y": 963
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0349
+    },
+    {
+      "action": "move",
+      "x": 922,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0351
+    },
+    {
+      "action": "move",
+      "x": 931,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0538
+    },
+    {
+      "action": "move",
+      "x": 934,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0513
+    },
+    {
+      "action": "move",
+      "x": 938,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1151
+    },
+    {
+      "action": "move",
+      "x": 943,
+      "y": 965
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0693
+    },
+    {
+      "action": "move",
+      "x": 942,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 931,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0268
+    },
+    {
+      "action": "move",
+      "x": 921,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.016
+    },
+    {
+      "action": "move",
+      "x": 910,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 900,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0177
+    },
+    {
+      "action": "move",
+      "x": 892,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 877,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 868,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0272
+    },
+    {
+      "action": "move",
+      "x": 858,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 849,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 841,
+      "y": 965
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0261
+    },
+    {
+      "action": "move",
+      "x": 832,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 823,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0268
+    },
+    {
+      "action": "move",
+      "x": 811,
+      "y": 966
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 799,
+      "y": 967
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 791,
+      "y": 967
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 782,
+      "y": 968
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0173
+    },
+    {
+      "action": "move",
+      "x": 774,
+      "y": 969
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0178
+    },
+    {
+      "action": "move",
+      "x": 763,
+      "y": 969
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0354
+    },
+    {
+      "action": "move",
+      "x": 752,
+      "y": 970
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1125
+    },
+    {
+      "action": "move",
+      "x": 750,
+      "y": 970
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1582
+    },
+    {
+      "action": "move",
+      "x": 749,
+      "y": 970
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0348
+    },
+    {
+      "action": "move",
+      "x": 740,
+      "y": 970
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0352
+    },
+    {
+      "action": "move",
+      "x": 732,
+      "y": 970
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.351
+    },
+    {
+      "action": "move",
+      "x": 730,
+      "y": 970
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1303
+    },
+    {
+      "action": "move",
+      "x": 730,
+      "y": 970
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0263
+    },
+    {
+      "action": "move",
+      "x": 730,
+      "y": 962
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0612
+    },
+    {
+      "action": "move",
+      "x": 729,
+      "y": 955
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0532
+    },
+    {
+      "action": "move",
+      "x": 728,
+      "y": 949
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.052
+    },
+    {
+      "action": "move",
+      "x": 727,
+      "y": 944
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.052
+    },
+    {
+      "action": "move",
+      "x": 725,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2365
+    },
+    {
+      "action": "move",
+      "x": 725,
+      "y": 938
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.8396
+    },
+    {
+      "action": "move",
+      "x": 724,
+      "y": 938
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0175
+    },
+    {
+      "action": "move",
+      "x": 716,
+      "y": 938
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.026
+    },
+    {
+      "action": "move",
+      "x": 708,
+      "y": 939
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0271
+    },
+    {
+      "action": "move",
+      "x": 698,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 689,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 678,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0182
+    },
+    {
+      "action": "move",
+      "x": 666,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 658,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 648,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 636,
+      "y": 940
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 619,
+      "y": 939
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 610,
+      "y": 937
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 587,
+      "y": 935
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 557,
+      "y": 931
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 529,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 501,
+      "y": 925
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 482,
+      "y": 923
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0077
+    },
+    {
+      "action": "move",
+      "x": 466,
+      "y": 922
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0101
+    },
+    {
+      "action": "move",
+      "x": 441,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 427,
+      "y": 916
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 416,
+      "y": 915
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0081
+    },
+    {
+      "action": "move",
+      "x": 403,
+      "y": 913
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 392,
+      "y": 910
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 384,
+      "y": 909
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0088
+    },
+    {
+      "action": "move",
+      "x": 374,
+      "y": 906
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 365,
+      "y": 902
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 352,
+      "y": 897
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0268
+    },
+    {
+      "action": "move",
+      "x": 344,
+      "y": 893
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0164
+    },
+    {
+      "action": "move",
+      "x": 335,
+      "y": 888
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0269
+    },
+    {
+      "action": "move",
+      "x": 326,
+      "y": 882
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 318,
+      "y": 877
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0369
+    },
+    {
+      "action": "move",
+      "x": 310,
+      "y": 872
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0329
+    },
+    {
+      "action": "move",
+      "x": 301,
+      "y": 867
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0523
+    },
+    {
+      "action": "move",
+      "x": 294,
+      "y": 864
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1422
+    },
+    {
+      "action": "move",
+      "x": 294,
+      "y": 863
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.471
+    },
+    {
+      "action": "move",
+      "x": 295,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 304,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0426
+    },
+    {
+      "action": "move",
+      "x": 312,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.062
+    },
+    {
+      "action": "move",
+      "x": 317,
+      "y": 864
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0429
+    },
+    {
+      "action": "move",
+      "x": 326,
+      "y": 864
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0351
+    },
+    {
+      "action": "move",
+      "x": 334,
+      "y": 864
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0631
+    },
+    {
+      "action": "move",
+      "x": 339,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.06
+    },
+    {
+      "action": "move",
+      "x": 346,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0531
+    },
+    {
+      "action": "move",
+      "x": 350,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0613
+    },
+    {
+      "action": "move",
+      "x": 354,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1403
+    },
+    {
+      "action": "move",
+      "x": 354,
+      "y": 863
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 346,
+      "y": 865
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0336
+    },
+    {
+      "action": "move",
+      "x": 338,
+      "y": 867
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.035
+    },
+    {
+      "action": "move",
+      "x": 330,
+      "y": 869
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0269
+    },
+    {
+      "action": "move",
+      "x": 322,
+      "y": 870
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0358
+    },
+    {
+      "action": "move",
+      "x": 314,
+      "y": 870
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0253
+    },
+    {
+      "action": "move",
+      "x": 306,
+      "y": 871
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0259
+    },
+    {
+      "action": "move",
+      "x": 298,
+      "y": 871
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.045
+    },
+    {
+      "action": "move",
+      "x": 289,
+      "y": 873
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.2979
+    },
+    {
+      "action": "move",
+      "x": 286,
+      "y": 873
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1488
+    },
+    {
+      "action": "move",
+      "x": 286,
+      "y": 873
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0521
+    },
+    {
+      "action": "move",
+      "x": 292,
+      "y": 876
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0001
+    },
+    {
+      "action": "move",
+      "x": 301,
+      "y": 879
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0073
+    },
+    {
+      "action": "move",
+      "x": 329,
+      "y": 881
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 340,
+      "y": 881
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0099
+    },
+    {
+      "action": "move",
+      "x": 349,
+      "y": 881
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 366,
+      "y": 883
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 387,
+      "y": 885
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 413,
+      "y": 885
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0077
+    },
+    {
+      "action": "move",
+      "x": 430,
+      "y": 885
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 458,
+      "y": 885
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0078
+    },
+    {
+      "action": "move",
+      "x": 471,
+      "y": 885
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 485,
+      "y": 883
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 498,
+      "y": 878
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 515,
+      "y": 871
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0179
+    },
+    {
+      "action": "move",
+      "x": 529,
+      "y": 862
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 543,
+      "y": 847
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 551,
+      "y": 838
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.01
+    },
+    {
+      "action": "move",
+      "x": 559,
+      "y": 827
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 569,
+      "y": 814
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0069
+    },
+    {
+      "action": "move",
+      "x": 576,
+      "y": 799
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 583,
+      "y": 785
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 586,
+      "y": 777
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 591,
+      "y": 764
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 596,
+      "y": 749
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0079
+    },
+    {
+      "action": "move",
+      "x": 599,
+      "y": 739
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0093
+    },
+    {
+      "action": "move",
+      "x": 604,
+      "y": 723
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0087
+    },
+    {
+      "action": "move",
+      "x": 609,
+      "y": 705
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 611,
+      "y": 697
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 616,
+      "y": 681
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 617,
+      "y": 673
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 620,
+      "y": 660
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.017
+    },
+    {
+      "action": "move",
+      "x": 623,
+      "y": 648
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0092
+    },
+    {
+      "action": "move",
+      "x": 624,
+      "y": 640
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0257
+    },
+    {
+      "action": "move",
+      "x": 626,
+      "y": 631
+    },
+    {
+      "action": "sleep",
+      "seconds": 1.5337
+    },
+    {
+      "action": "move",
+      "x": 625,
+      "y": 630
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0073
+    },
+    {
+      "action": "move",
+      "x": 610,
+      "y": 679
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 608,
+      "y": 707
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 606,
+      "y": 733
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 604,
+      "y": 759
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 602,
+      "y": 787
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 602,
+      "y": 809
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0089
+    },
+    {
+      "action": "move",
+      "x": 602,
+      "y": 825
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.009
+    },
+    {
+      "action": "move",
+      "x": 600,
+      "y": 840
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.008
+    },
+    {
+      "action": "move",
+      "x": 600,
+      "y": 848
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0091
+    },
+    {
+      "action": "move",
+      "x": 600,
+      "y": 857
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0181
+    },
+    {
+      "action": "move",
+      "x": 600,
+      "y": 871
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0169
+    },
+    {
+      "action": "move",
+      "x": 600,
+      "y": 883
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.018
+    },
+    {
+      "action": "move",
+      "x": 600,
+      "y": 893
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0171
+    },
+    {
+      "action": "move",
+      "x": 601,
+      "y": 903
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0268
+    },
+    {
+      "action": "move",
+      "x": 602,
+      "y": 912
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0523
+    },
+    {
+      "action": "move",
+      "x": 604,
+      "y": 920
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0348
+    },
+    {
+      "action": "move",
+      "x": 606,
+      "y": 929
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0351
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 937
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.1404
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 936
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0256
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 928
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.061
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 922
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0708
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 922
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0882
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 922
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0789
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 922
+    },
+    {
+      "action": "mousedown",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 0.0782
+    },
+    {
+      "action": "move",
+      "x": 607,
+      "y": 922
+    },
+    {
+      "action": "mouseup",
+      "button": 1
+    },
+    {
+      "action": "sleep",
+      "seconds": 1.5088
+    }
+  ],
+  "meta": {
+    "env": {
+      "QT_SCALE_FACTOR": "1"
+    },
+    "openshot_args": [
+      "--web-backend=webkit"
+    ]
+  }
+}
