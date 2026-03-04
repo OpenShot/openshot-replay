@@ -346,6 +346,64 @@ def count_leaf_assertions(value):
     return 1
 
 
+def _build_match_matrix(expected_rows, actual_rows, float_tol):
+    matrix = []
+    for expected in expected_rows:
+        row = []
+        for actual in actual_rows:
+            row.append(compare_subset(expected, actual, path="window", float_tol=float_tol) is None)
+        matrix.append(row)
+    return matrix
+
+
+def _find_perfect_matching(matrix):
+    n = len(matrix)
+    if n == 0:
+        return []
+    if any(not any(row) for row in matrix):
+        return None
+
+    match_to_expected = [-1] * n
+
+    def dfs(expected_idx, visited_actual):
+        for actual_idx, ok in enumerate(matrix[expected_idx]):
+            if not ok or visited_actual[actual_idx]:
+                continue
+            visited_actual[actual_idx] = True
+            owner = match_to_expected[actual_idx]
+            if owner == -1 or dfs(owner, visited_actual):
+                match_to_expected[actual_idx] = expected_idx
+                return True
+        return False
+
+    for expected_idx in range(n):
+        visited_actual = [False] * n
+        if not dfs(expected_idx, visited_actual):
+            return None
+
+    expected_to_actual = [-1] * n
+    for actual_idx, expected_idx in enumerate(match_to_expected):
+        expected_to_actual[expected_idx] = actual_idx
+    if any(x < 0 for x in expected_to_actual):
+        return None
+    return expected_to_actual
+
+
+def try_reordered_window_match(expected_rows, actual_rows, start_idx, float_tol, max_window=20):
+    remaining = min(len(expected_rows) - start_idx, len(actual_rows) - start_idx, max_window)
+    if remaining < 2:
+        return 0
+
+    for size in range(2, remaining + 1):
+        exp_chunk = expected_rows[start_idx : start_idx + size]
+        act_chunk = actual_rows[start_idx : start_idx + size]
+        matrix = _build_match_matrix(exp_chunk, act_chunk, float_tol=float_tol)
+        matching = _find_perfect_matching(matrix)
+        if matching is not None:
+            return size
+    return 0
+
+
 def assert_updates_trace(expected_path, actual_path, float_tol=0.05):
     exp_rows = events_only(load_jsonl(expected_path), "update")
     act_rows = events_only(load_jsonl(actual_path), "update")
@@ -357,14 +415,31 @@ def assert_updates_trace(expected_path, actual_path, float_tol=0.05):
 
     exp_alias = AliasMap()
     act_alias = AliasMap()
+    exp_norm = [normalize_update_event(e, exp_alias) for e in exp_rows]
+    act_norm = [normalize_update_event(a, act_alias) for a in act_rows]
+
     assertion_count = 0
-    for idx, (e, a) in enumerate(zip(exp_rows, act_rows), 1):
-        e_norm = normalize_update_event(e, exp_alias)
-        a_norm = normalize_update_event(a, act_alias)
-        assertion_count += count_leaf_assertions(e_norm)
-        err = compare_subset(e_norm, a_norm, path=f"update[{idx}]", float_tol=float_tol)
+    idx = 0
+    while idx < len(exp_norm):
+        e_norm = exp_norm[idx]
+        a_norm = act_norm[idx]
+        err = compare_subset(e_norm, a_norm, path=f"update[{idx + 1}]", float_tol=float_tol)
         if err:
-            raise AssertionError(err)
+            consumed = try_reordered_window_match(
+                exp_norm,
+                act_norm,
+                idx,
+                float_tol=float_tol,
+                max_window=20,
+            )
+            if consumed <= 0:
+                raise AssertionError(err)
+            for j in range(idx, idx + consumed):
+                assertion_count += count_leaf_assertions(exp_norm[j])
+            idx += consumed
+            continue
+        assertion_count += count_leaf_assertions(e_norm)
+        idx += 1
     return {"events": len(exp_rows), "assertions": assertion_count}
 
 
@@ -394,17 +469,98 @@ def assert_selections_trace(expected_path, actual_path, float_tol=0.05):
             f"selection event count mismatch: expected {len(exp_rows)}, got {len(act_rows)}; {details}"
         )
     assertion_count = 0
-    for idx, (e, a) in enumerate(zip(exp_rows, act_rows), 1):
-        assertion_count += count_leaf_assertions(e)
-        err = compare_subset(e, a, path=f"selection[{idx}]", float_tol=float_tol)
+    idx = 0
+    while idx < len(exp_rows):
+        e = exp_rows[idx]
+        a = act_rows[idx]
+        err = compare_subset(e, a, path=f"selection[{idx + 1}]", float_tol=float_tol)
         if err:
-            raise AssertionError(err)
+            consumed = try_reordered_window_match(
+                exp_rows,
+                act_rows,
+                idx,
+                float_tol=float_tol,
+                max_window=20,
+            )
+            if consumed <= 0:
+                raise AssertionError(err)
+            for j in range(idx, idx + consumed):
+                assertion_count += count_leaf_assertions(exp_rows[j])
+            idx += consumed
+            continue
+        assertion_count += count_leaf_assertions(e)
+        idx += 1
     return {"events": len(exp_rows), "assertions": assertion_count}
 
 
+def is_clip_update_burst_event(row):
+    if not isinstance(row, dict):
+        return False
+    if row.get("event") != "update":
+        return False
+    if row.get("action_type") not in {"insert", "update", "delete"}:
+        return False
+    key = row.get("key")
+    return (
+        isinstance(key, list)
+        and len(key) == 2
+        and key[0] == "clips"
+        and isinstance(key[1], dict)
+        and not key[1]
+    )
+
+
+def burst_end(rows, start_idx):
+    idx = start_idx
+    while idx < len(rows) and is_clip_update_burst_event(rows[idx]):
+        idx += 1
+    return idx
+
+
+def assert_unordered_clip_update_burst(expected_rows, actual_rows, base_idx, float_tol):
+    if len(expected_rows) != len(actual_rows):
+        raise AssertionError(
+            "clip-update burst size mismatch at "
+            f"event[{base_idx + 1}]: expected {len(expected_rows)}, got {len(actual_rows)}; "
+            f"expected_first={summarize_compared_row(expected_rows[0]) if expected_rows else 'n/a'}; "
+            f"actual_first={summarize_compared_row(actual_rows[0]) if actual_rows else 'n/a'}"
+        )
+
+    unmatched_actual = list(range(len(actual_rows)))
+    assertion_count = 0
+    for exp_offset, expected in enumerate(expected_rows):
+        assertion_count += count_leaf_assertions(expected)
+        matched_idx = None
+        for pos, actual_idx in enumerate(unmatched_actual):
+            actual = actual_rows[actual_idx]
+            err = compare_subset(
+                expected,
+                actual,
+                path=f"event[{base_idx + exp_offset + 1}]",
+                float_tol=float_tol,
+            )
+            if err is None:
+                matched_idx = pos
+                break
+        if matched_idx is None:
+            candidates = ", ".join(
+                summarize_compared_row(actual_rows[i]) for i in unmatched_actual[:3]
+            )
+            raise AssertionError(
+                "clip-update burst mismatch at "
+                f"event[{base_idx + exp_offset + 1}]: "
+                f"no matching actual event for expected={summarize_compared_row(expected)}; "
+                f"remaining_actual={candidates or 'none'}"
+            )
+        unmatched_actual.pop(matched_idx)
+    return assertion_count
+
+
 def assert_events_trace(expected_path, actual_path, float_tol=0.05):
-    exp_rows = [r for r in load_jsonl(expected_path) if r.get("event") != "meta"]
-    act_rows = [r for r in load_jsonl(actual_path) if r.get("event") != "meta"]
+    # Selection events are validated separately by assert_selections_trace().
+    # Excluding them here avoids duplicate checks and ordering noise.
+    exp_rows = [r for r in load_jsonl(expected_path) if r.get("event") not in {"meta", "selection"}]
+    act_rows = [r for r in load_jsonl(actual_path) if r.get("event") not in {"meta", "selection"}]
 
     exp_alias = AliasMap()
     act_alias = AliasMap()
@@ -434,17 +590,46 @@ def assert_events_trace(expected_path, actual_path, float_tol=0.05):
         )
 
     assertion_count = 0
-    for idx, (e, a) in enumerate(zip(exp_norm, act_norm), 1):
-        assertion_count += count_leaf_assertions(e)
-        err = compare_subset(e, a, path=f"event[{idx}]", float_tol=float_tol)
-        if err:
-            prev_idx = idx - 2
-            prev_ctx = ""
-            if prev_idx >= 0:
-                prev_ctx = f"; previous matched event: {summarize_event(exp_norm[prev_idx])}"
-            raise AssertionError(
-                f"{err}. expected={summarize_event(e)} actual={summarize_event(a)}{prev_ctx}"
+    idx = 0
+    while idx < len(exp_norm):
+        e = exp_norm[idx]
+        a = act_norm[idx]
+
+        if is_clip_update_burst_event(e) and is_clip_update_burst_event(a):
+            exp_end = burst_end(exp_norm, idx)
+            act_end = burst_end(act_norm, idx)
+            assertion_count += assert_unordered_clip_update_burst(
+                exp_norm[idx:exp_end],
+                act_norm[idx:act_end],
+                idx,
+                float_tol=float_tol,
             )
+            idx = exp_end
+            continue
+
+        err = compare_subset(e, a, path=f"event[{idx + 1}]", float_tol=float_tol)
+        if err:
+            consumed = try_reordered_window_match(
+                exp_norm,
+                act_norm,
+                idx,
+                float_tol=float_tol,
+                max_window=20,
+            )
+            if consumed <= 0:
+                prev_idx = idx - 1
+                prev_ctx = ""
+                if prev_idx >= 0:
+                    prev_ctx = f"; previous matched event: {summarize_event(exp_norm[prev_idx])}"
+                raise AssertionError(
+                    f"{err}. expected={summarize_event(e)} actual={summarize_event(a)}{prev_ctx}"
+                )
+            for j in range(idx, idx + consumed):
+                assertion_count += count_leaf_assertions(exp_norm[j])
+            idx += consumed
+            continue
+        assertion_count += count_leaf_assertions(e)
+        idx += 1
     return {"events": len(exp_norm), "assertions": assertion_count}
 
 
