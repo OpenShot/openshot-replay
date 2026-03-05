@@ -144,9 +144,14 @@ def normalize_trace_event(row, alias_map, has_following_non_dialog=False):
             out["result"] = row.get("result")
         return out
     if event_name == "dock_visibility":
+        object_name = row.get("object_name", "")
+        # Tutorial dock visibility can change at shutdown depending on focus and
+        # window-manager timing; this is not meaningful for replay correctness.
+        if object_name == "dockTutorial":
+            return None
         return {
             "event": "dock_visibility",
-            "object_name": row.get("object_name", ""),
+            "object_name": object_name,
             "window_title": row.get("window_title", ""),
             "visible": bool(row.get("visible", False)),
             "floating": bool(row.get("floating", False)),
