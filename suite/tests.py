@@ -109,6 +109,17 @@ def normalize_selection_event(row, alias_map):
     return payload
 
 
+def normalize_dialog_window_title(title):
+    if not isinstance(title, str):
+        return title
+    # Export progress dialog title includes runtime-dependent FPS, which
+    # fluctuates between runs and is not meaningful for behavior assertions.
+    normalized = re.sub(r"\(\d+(?:\.\d+)? FPS\)", "(FPS)", title)
+    # Elapsed duration can vary by small amounts across runs.
+    normalized = re.sub(r"\b\d{1,2}:\d{2}:\d{2}\b", "H:MM:SS", normalized)
+    return normalized
+
+
 def normalize_trace_event(row, alias_map, has_following_non_dialog=False):
     event_name = row.get("event")
     if event_name == "update":
@@ -139,7 +150,7 @@ def normalize_trace_event(row, alias_map, has_following_non_dialog=False):
             "phase": phase,
             "class_name": row.get("class_name", ""),
             "object_name": row.get("object_name", ""),
-            "window_title": row.get("window_title", ""),
+            "window_title": normalize_dialog_window_title(row.get("window_title", "")),
             "modal": bool(row.get("modal", False)),
         }
         if "result" in row:
