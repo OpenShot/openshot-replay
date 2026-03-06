@@ -4,12 +4,13 @@ import json
 import os
 import shlex
 import signal
-import shutil
 import subprocess
 import threading
 import time
 import re
 from pathlib import Path
+
+from cleanup import cleanup_home_artifacts
 
 DEBUG_REPLAY = False
 
@@ -108,9 +109,11 @@ def launch_openshot(home_dir, extra_env=None, openshot_root=None, extra_args=Non
 
 
 def reset_openshot_profile(home_dir):
-    profile_dir = Path(home_dir) / ".openshot_qt"
-    if profile_dir.exists():
-        shutil.rmtree(profile_dir)
+    profile_dir = cleanup_home_artifacts(
+        home_dir,
+        remove_profile=True,
+        remove_exports=False,
+    )["profile_dir"]
     profile_dir.mkdir(parents=True, exist_ok=True)
 
 
@@ -892,7 +895,11 @@ def main():
     try:
         if not args.no_launch:
             if not args.preserve_home:
-                reset_openshot_profile(home_dir)
+                cleanup = cleanup_home_artifacts(home_dir, remove_profile=True, remove_exports=True)
+                print(
+                    f"[CLEANUP] Removed OpenShot profile dir '{cleanup['profile_dir']}' (if present) "
+                    f"and {cleanup['exports_removed']} export file(s) from {cleanup['home_dir']}"
+                )
             proc = launch_openshot(
                 home_dir,
                 extra_env=launch_env or None,

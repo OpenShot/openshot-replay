@@ -8,6 +8,7 @@ import threading
 import time
 from pathlib import Path
 
+from cleanup import cleanup_home_artifacts
 from replay import (
     close_app,
     focus_window,
@@ -262,6 +263,11 @@ def main():
         help="Do not close launched OpenShot when recording stops",
     )
     parser.add_argument(
+        "--preserve-home",
+        action="store_true",
+        help="Do not reset HOME/.openshot_qt or purge prior export files before launching OpenShot",
+    )
+    parser.add_argument(
         "--trace-dir",
         default=str((Path(__file__).resolve().parent / "artifacts" / "traces").resolve()),
         help="Directory to write in-app JSONL traces during recording",
@@ -341,6 +347,12 @@ def main():
     proc = None
     try:
         if not args.no_launch:
+            if not args.preserve_home:
+                cleanup = cleanup_home_artifacts(home_dir, remove_profile=True, remove_exports=True)
+                print(
+                    f"[CLEANUP] Removed OpenShot profile dir '{cleanup['profile_dir']}' (if present) "
+                    f"and {cleanup['exports_removed']} export file(s) from {cleanup['home_dir']}"
+                )
             proc = launch_openshot(
                 home_dir,
                 extra_env=launch_env or None,

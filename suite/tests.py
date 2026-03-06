@@ -6,6 +6,7 @@ import re
 import time
 from pathlib import Path
 
+from cleanup import cleanup_home_artifacts
 from replay import (
     EmergencyStop,
     ReplayAbort,
@@ -892,6 +893,11 @@ def main():
     output_dir = Path(args.out).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     home_dir.mkdir(parents=True, exist_ok=True)
+    cleanup = cleanup_home_artifacts(home_dir, remove_profile=True, remove_exports=True)
+    print(
+        f"[CLEANUP] Removed OpenShot profile dir '{cleanup['profile_dir']}' (if present) "
+        f"and {cleanup['exports_removed']} export file(s) from {cleanup['home_dir']}"
+    )
 
     cases = discover_cases(cases_dir)
     if not cases:
