@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 import re
+import time
 from pathlib import Path
 
 from replay import (
@@ -716,7 +717,7 @@ def filter_cases(cases, selectors):
 
 
 def print_results_table(rows):
-    headers = ["Case", "Result", "Assertions", "Events", "Updates", "Selections", "Details"]
+    headers = ["Case", "Result", "Time (s)", "Assertions", "Events", "Updates", "Selections", "Details"]
     widths = [len(h) for h in headers]
 
     normalized = []
@@ -724,6 +725,7 @@ def print_results_table(rows):
         values = [
             str(row.get("name", "")),
             str(row.get("result", "")),
+            str(row.get("elapsed", "")),
             str(row.get("assertions", "")),
             str(row.get("events", "")),
             str(row.get("updates", "")),
@@ -907,10 +909,12 @@ def main():
     total_selection_events = 0
     case_rows = []
     aborted_reason = ""
+    suite_start = time.perf_counter()
     estop = EmergencyStop()
     estop.start()
     try:
         for case in cases:
+            case_start = time.perf_counter()
             if estop.triggered:
                 aborted_reason = "Emergency Esc pressed before starting next case."
                 print(f"[ABORT] {aborted_reason}")
@@ -970,7 +974,8 @@ def main():
 
                 print(
                     f"[PASS] {case['name']} "
-                    f"(assertions={case_assertions}, "
+                    f"(time={time.perf_counter() - case_start:.2f}s, "
+                    f"assertions={case_assertions}, "
                     f"events={event_stats['events']}, "
                     f"updates={update_stats['events']}, "
                     f"selections={selection_stats['events']})"
@@ -979,6 +984,7 @@ def main():
                     {
                         "name": case["name"],
                         "result": "PASS",
+                        "elapsed": f"{time.perf_counter() - case_start:.2f}",
                         "assertions": case_assertions,
                         "events": event_stats["events"],
                         "updates": update_stats["events"],
@@ -997,6 +1003,7 @@ def main():
                     {
                         "name": case["name"],
                         "result": "FAIL",
+                        "elapsed": f"{time.perf_counter() - case_start:.2f}",
                         "assertions": 0,
                         "events": 0,
                         "updates": 0,
@@ -1015,6 +1022,7 @@ def main():
                     {
                         "name": case["name"],
                         "result": "FAIL",
+                        "elapsed": f"{time.perf_counter() - case_start:.2f}",
                         "assertions": 0,
                         "events": 0,
                         "updates": 0,
@@ -1036,6 +1044,7 @@ def main():
     print(f"  Trace events checked: {total_trace_events}")
     print(f"  Update events checked: {total_update_events}")
     print(f"  Selection events checked: {total_selection_events}")
+    print(f"  Elapsed: {time.perf_counter() - suite_start:.2f}s")
     if aborted_reason:
         print(f"  Aborted: yes ({aborted_reason})")
 

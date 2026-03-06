@@ -39,6 +39,8 @@ By default, scripts target `../openshot-qt`. Override with:
 - Ubuntu + X11 session
 - `xdotool`
 - `wmctrl`
+- `curl`
+- `unzip`
 - Python 3.10+
 - `pynput` (recording + emergency Esc stop)
 
@@ -46,8 +48,23 @@ Install:
 
 ```bash
 sudo apt update
-sudo apt install -y xdotool wmctrl python3 python3-pip
+sudo apt install -y xdotool wmctrl curl unzip python3 python3-pip
 python3 -m pip install --user pynput
+```
+
+## Test Media Setup
+
+Recordings in this repo expect test media at:
+
+`suite/artifacts/home/openshot-testing`
+
+Download and extract it:
+
+```bash
+mkdir -p suite/artifacts/home
+curl -L -o /tmp/openshot-testing.zip https://s3.amazonaws.com/releases.openshot.org/testing/openshot-testing.zip
+rm -rf suite/artifacts/home/openshot-testing
+unzip -q /tmp/openshot-testing.zip -d suite/artifacts/home
 ```
 
 ## Standard Procedure
