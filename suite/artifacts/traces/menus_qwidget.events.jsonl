@@ -1,0 +1,153 @@
+{"event": "meta", "seq": 1, "ts": 1772861315.688162, "pid": 2182155, "include_load": false, "include_ignored": false, "trace_actions": true, "trace_dialogs": true, "trace_docks": true, "trace_cache": false, "cache_interval_ms": 500, "project_path": ""}
+{"event": "dock_visibility", "seq": 2, "ts": 1772861315.865351, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 3, "ts": 1772861315.865869, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 4, "ts": 1772861315.866325, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 5, "ts": 1772861315.866645, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 6, "ts": 1772861315.86696, "object_name": "dockEffects", "window_title": "Efectos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 7, "ts": 1772861315.867262, "object_name": "dockProperties", "window_title": "Propiedades", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 8, "ts": 1772861315.867656, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 9, "ts": 1772861315.882491, "object_name": "dockProperties", "window_title": "Propiedades", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 10, "ts": 1772861315.882918, "object_name": "dockProperties", "window_title": "Propiedades", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 11, "ts": 1772861315.882973, "object_name": "dockProperties", "window_title": "Propiedades", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 12, "ts": 1772861315.891454, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 13, "ts": 1772861315.892134, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 14, "ts": 1772861315.900847, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 15, "ts": 1772861315.901837, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 16, "ts": 1772861315.910643, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 17, "ts": 1772861315.91111, "object_name": "dockEffects", "window_title": "Efectos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 18, "ts": 1772861315.917975, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 19, "ts": 1772861315.918242, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 20, "ts": 1772861315.924444, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 21, "ts": 1772861315.924648, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 22, "ts": 1772861315.930807, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 23, "ts": 1772861315.931062, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 24, "ts": 1772861315.947787, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 25, "ts": 1772861315.947903, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 26, "ts": 1772861315.947965, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "selection", "seq": 27, "ts": 1772861315.977447, "selected_items": [], "selected_clips": [], "selected_transitions": [], "selected_effects": [], "selected_tracks": [], "selected_markers": [], "show_property_id": null, "show_property_type": null}
+{"event": "dock_visibility", "seq": 28, "ts": 1772861316.146781, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 29, "ts": 1772861319.408075, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dialog_lifecycle", "seq": 30, "ts": 1772861325.916956, "phase": "shown", "class_name": "Preferences", "object_name": "dlgPreferences", "window_title": "Preferencias", "modal": true}
+{"event": "dialog_lifecycle", "seq": 31, "ts": 1772861335.767879, "phase": "hidden", "class_name": "Preferences", "object_name": "dlgPreferences", "window_title": "Preferencias", "modal": true}
+{"event": "dialog_lifecycle", "seq": 32, "ts": 1772861335.768625, "phase": "rejected", "class_name": "Preferences", "object_name": "dlgPreferences", "window_title": "Preferencias", "modal": true, "result": "rejected"}
+{"event": "dialog_lifecycle", "seq": 33, "ts": 1772861335.768664, "phase": "finished", "class_name": "Preferences", "object_name": "dlgPreferences", "window_title": "Preferencias", "modal": true, "result": 0}
+{"event": "dialog_lifecycle", "seq": 34, "ts": 1772861338.089998, "phase": "shown", "class_name": "TitleEditor", "object_name": "Dialog", "window_title": "Títulos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 35, "ts": 1772861341.120023, "phase": "closed", "class_name": "TitleEditor", "object_name": "Dialog", "window_title": "Títulos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 36, "ts": 1772861341.12341, "phase": "hidden", "class_name": "TitleEditor", "object_name": "Dialog", "window_title": "Títulos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 37, "ts": 1772861341.12378, "phase": "rejected", "class_name": "TitleEditor", "object_name": "Dialog", "window_title": "Títulos", "modal": true, "result": "rejected"}
+{"event": "dialog_lifecycle", "seq": 38, "ts": 1772861341.123819, "phase": "finished", "class_name": "TitleEditor", "object_name": "Dialog", "window_title": "Títulos", "modal": true, "result": 0}
+{"event": "dialog_lifecycle", "seq": 39, "ts": 1772861343.714597, "phase": "shown", "class_name": "AnimatedTitle", "object_name": "Dialog", "window_title": "Títulos animados (Impulsado por Blender)", "modal": true}
+{"event": "dialog_lifecycle", "seq": 40, "ts": 1772861346.500238, "phase": "closed", "class_name": "AnimatedTitle", "object_name": "Dialog", "window_title": "Títulos animados (Impulsado por Blender)", "modal": true}
+{"event": "dialog_lifecycle", "seq": 41, "ts": 1772861346.504264, "phase": "hidden", "class_name": "AnimatedTitle", "object_name": "Dialog", "window_title": "Títulos animados (Impulsado por Blender)", "modal": true}
+{"event": "dialog_lifecycle", "seq": 42, "ts": 1772861346.504444, "phase": "accepted", "class_name": "AnimatedTitle", "object_name": "Dialog", "window_title": "Títulos animados (Impulsado por Blender)", "modal": true, "result": "accepted"}
+{"event": "dialog_lifecycle", "seq": 43, "ts": 1772861346.504471, "phase": "finished", "class_name": "AnimatedTitle", "object_name": "Dialog", "window_title": "Títulos animados (Impulsado por Blender)", "modal": true, "result": 1}
+{"event": "dock_visibility", "seq": 44, "ts": 1772861349.522701, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 45, "ts": 1772861349.522919, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 46, "ts": 1772861349.523041, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 47, "ts": 1772861349.523158, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 48, "ts": 1772861349.523254, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 49, "ts": 1772861349.52335, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 50, "ts": 1772861349.567322, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 51, "ts": 1772861349.567706, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 52, "ts": 1772861349.568021, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 53, "ts": 1772861349.568273, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 54, "ts": 1772861349.568698, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 55, "ts": 1772861349.573718, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 56, "ts": 1772861349.574012, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 57, "ts": 1772861349.578941, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 58, "ts": 1772861349.579147, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 59, "ts": 1772861349.584293, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 60, "ts": 1772861349.584539, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 61, "ts": 1772861349.58986, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 62, "ts": 1772861349.590097, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 63, "ts": 1772861349.595277, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 64, "ts": 1772861349.595428, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 65, "ts": 1772861349.600574, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 66, "ts": 1772861353.137305, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 67, "ts": 1772861353.137662, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 68, "ts": 1772861353.13784, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 69, "ts": 1772861353.137987, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 70, "ts": 1772861353.138124, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 71, "ts": 1772861353.138271, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 72, "ts": 1772861353.176637, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 73, "ts": 1772861353.176759, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 74, "ts": 1772861353.177083, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 75, "ts": 1772861353.1775, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 76, "ts": 1772861353.177704, "object_name": "dockEffects", "window_title": "Efectos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 77, "ts": 1772861353.178045, "object_name": "dockEffects", "window_title": "Efectos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 78, "ts": 1772861353.17837, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 79, "ts": 1772861353.178942, "object_name": "dockProperties", "window_title": "Propiedades", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 80, "ts": 1772861353.179013, "object_name": "dockProperties", "window_title": "Propiedades", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 81, "ts": 1772861353.179174, "object_name": "dockProperties", "window_title": "Propiedades", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 82, "ts": 1772861353.184296, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 83, "ts": 1772861353.18448, "object_name": "dockEffects", "window_title": "Efectos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 84, "ts": 1772861353.189888, "object_name": "dockCaptionEditor", "window_title": "Subtítulos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 85, "ts": 1772861353.195103, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 86, "ts": 1772861353.195248, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 87, "ts": 1772861353.200432, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 88, "ts": 1772861353.200719, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 89, "ts": 1772861353.205846, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 90, "ts": 1772861353.20614, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 91, "ts": 1772861353.211397, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 92, "ts": 1772861353.211542, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 93, "ts": 1772861353.217125, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 94, "ts": 1772861353.223535, "object_name": "dockCaptionEditor", "window_title": "Subtítulos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 95, "ts": 1772861372.099805, "object_name": "dockCaptionEditor", "window_title": "Subtítulos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 96, "ts": 1772861372.100017, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 97, "ts": 1772861372.100169, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 98, "ts": 1772861372.100321, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 99, "ts": 1772861372.100481, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 100, "ts": 1772861372.10066, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 101, "ts": 1772861372.100828, "object_name": "dockProperties", "window_title": "Propiedades", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 102, "ts": 1772861372.101043, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 103, "ts": 1772861372.146639, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 104, "ts": 1772861372.146842, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 105, "ts": 1772861372.147147, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 106, "ts": 1772861372.147261, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 107, "ts": 1772861372.147545, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 108, "ts": 1772861372.147891, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 109, "ts": 1772861372.148538, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 110, "ts": 1772861372.156009, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 111, "ts": 1772861372.156328, "object_name": "dockFiles", "window_title": "Archivos del proyecto", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 112, "ts": 1772861372.16245, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 113, "ts": 1772861372.162731, "object_name": "dockTransitions", "window_title": "Transiciones", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 114, "ts": 1772861372.168814, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 115, "ts": 1772861372.169096, "object_name": "dockEffects", "window_title": "Efectos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 116, "ts": 1772861372.17469, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 117, "ts": 1772861372.174976, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 118, "ts": 1772861372.18046, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": false, "floating": false}
+{"event": "dock_visibility", "seq": 119, "ts": 1772861372.180632, "object_name": "dockVideo", "window_title": "Vista previa de vídeo", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 120, "ts": 1772861372.186435, "object_name": "dockTimeline", "window_title": "Línea de tiempo", "visible": true, "floating": false}
+{"event": "dialog_lifecycle", "seq": 121, "ts": 1772861375.470626, "phase": "shown", "class_name": "About", "object_name": "aboutDialog", "window_title": "Acerca de OpenShot", "modal": true}
+{"event": "dialog_lifecycle", "seq": 122, "ts": 1772861380.816733, "phase": "shown", "class_name": "Credits", "object_name": "Dialog", "window_title": "Créditos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 123, "ts": 1772861380.825377, "phase": "hidden", "class_name": "Credits", "object_name": "Dialog", "window_title": "Créditos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 124, "ts": 1772861380.832609, "phase": "shown", "class_name": "Credits", "object_name": "Dialog", "window_title": "Créditos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 125, "ts": 1772861386.364874, "phase": "hidden", "class_name": "Credits", "object_name": "Dialog", "window_title": "Créditos", "modal": true}
+{"event": "dialog_lifecycle", "seq": 126, "ts": 1772861386.365821, "phase": "rejected", "class_name": "Credits", "object_name": "Dialog", "window_title": "Créditos", "modal": true, "result": "rejected"}
+{"event": "dialog_lifecycle", "seq": 127, "ts": 1772861386.365894, "phase": "finished", "class_name": "Credits", "object_name": "Dialog", "window_title": "Créditos", "modal": true, "result": 0}
+{"event": "dialog_lifecycle", "seq": 128, "ts": 1772861387.757433, "phase": "shown", "class_name": "License", "object_name": "Dialog", "window_title": "Licencia", "modal": true}
+{"event": "dialog_lifecycle", "seq": 129, "ts": 1772861390.535653, "phase": "closed", "class_name": "License", "object_name": "Dialog", "window_title": "Licencia", "modal": true}
+{"event": "dialog_lifecycle", "seq": 130, "ts": 1772861390.536597, "phase": "hidden", "class_name": "License", "object_name": "Dialog", "window_title": "Licencia", "modal": true}
+{"event": "dialog_lifecycle", "seq": 131, "ts": 1772861390.536701, "phase": "rejected", "class_name": "License", "object_name": "Dialog", "window_title": "Licencia", "modal": true, "result": "rejected"}
+{"event": "dialog_lifecycle", "seq": 132, "ts": 1772861390.536735, "phase": "finished", "class_name": "License", "object_name": "Dialog", "window_title": "Licencia", "modal": true, "result": 0}
+{"event": "dialog_lifecycle", "seq": 133, "ts": 1772861394.998911, "phase": "hidden", "class_name": "About", "object_name": "aboutDialog", "window_title": "Acerca de OpenShot", "modal": true}
+{"event": "dialog_lifecycle", "seq": 134, "ts": 1772861395.001281, "phase": "rejected", "class_name": "About", "object_name": "aboutDialog", "window_title": "Acerca de OpenShot", "modal": true, "result": "rejected"}
+{"event": "dialog_lifecycle", "seq": 135, "ts": 1772861395.001337, "phase": "finished", "class_name": "About", "object_name": "aboutDialog", "window_title": "Acerca de OpenShot", "modal": true, "result": 0}
+{"event": "dock_visibility", "seq": 136, "ts": 1772861401.286873, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 137, "ts": 1772861403.320124, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 138, "ts": 1772861403.322574, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 139, "ts": 1772861405.481397, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 140, "ts": 1772861405.485115, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 141, "ts": 1772861407.259072, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 142, "ts": 1772861407.262749, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 143, "ts": 1772861408.911058, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 144, "ts": 1772861408.914389, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 145, "ts": 1772861410.794527, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 146, "ts": 1772861414.445927, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 147, "ts": 1772861416.577421, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 148, "ts": 1772861417.753825, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 149, "ts": 1772861419.001934, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 150, "ts": 1772861420.019635, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": true, "floating": false}
+{"event": "dock_visibility", "seq": 151, "ts": 1772861420.212161, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": true, "floating": true}
+{"event": "dock_visibility", "seq": 152, "ts": 1772861421.750376, "object_name": "dockTutorial", "window_title": "Tutorial", "visible": false, "floating": true}
+{"event": "dock_visibility", "seq": 153, "ts": 1772861424.717743, "object_name": "dockEmojis", "window_title": "Emoticonos", "visible": false, "floating": false}
