@@ -82,10 +82,24 @@ def normalize_ids(obj, alias_map):
     return obj
 
 
+def normalize_volatile_paths(obj):
+    if isinstance(obj, dict):
+        return {k: normalize_volatile_paths(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [normalize_volatile_paths(x) for x in obj]
+    if isinstance(obj, str):
+        return re.sub(
+            r"([/\\\\][^/\\\\]+_assets[/\\\\]thumbnail[/\\\\])[^/\\\\]+",
+            r"\1<THUMBNAIL>",
+            obj,
+        )
+    return obj
+
+
 def normalize_update_event(row, alias_map):
     key = normalize_ids(row.get("key"), alias_map)
-    value = normalize_ids(row.get("value"), alias_map)
-    old_values = normalize_ids(row.get("old_values"), alias_map)
+    value = normalize_volatile_paths(normalize_ids(row.get("value"), alias_map))
+    old_values = normalize_volatile_paths(normalize_ids(row.get("old_values"), alias_map))
     return {
         "action_type": row.get("action_type"),
         "key": key,
@@ -907,7 +921,7 @@ def main():
     cleanup = cleanup_home_artifacts(home_dir, remove_profile=True, remove_exports=True)
     print(
         f"[CLEANUP] Removed OpenShot profile dir '{cleanup['profile_dir']}' (if present) "
-        f"and {cleanup['exports_removed']} export file(s) from {cleanup['home_dir']}"
+        f"and {cleanup['artifacts_removed']} home artifact(s) from {cleanup['home_dir']}"
     )
 
     cases = discover_cases(cases_dir)
