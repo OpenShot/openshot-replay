@@ -401,6 +401,37 @@ def point_in_window(x, y, geometry, margin=0):
     return gx - margin <= x < gx + gw + margin and gy - margin <= y < gy + gh + margin
 
 
+def resolve_pointer_geometries(active_id, main_window_id=None, previous_geo=None):
+    """Return candidate geometries considered safe for pointer actions."""
+    geos = []
+    seen = set()
+    for win_id in (active_id, main_window_id):
+        if not win_id:
+            continue
+        geo = get_clickable_geometry(win_id)
+        if not geo:
+            continue
+        key = (geo["x"], geo["y"], geo["width"], geo["height"])
+        if key in seen:
+            continue
+        seen.add(key)
+        geos.append(geo)
+    if previous_geo:
+        key = (
+            previous_geo.get("x"),
+            previous_geo.get("y"),
+            previous_geo.get("width"),
+            previous_geo.get("height"),
+        )
+        if key not in seen:
+            geos.append(previous_geo)
+    return geos
+
+
+def point_in_any_window(x, y, geometries, margin=0):
+    return any(point_in_window(x, y, geo, margin=margin) for geo in geometries)
+
+
 def normalize_replay_key(key):
     """Translate recorded key token to xdotool-compatible key name."""
     if not isinstance(key, str):
@@ -573,11 +604,13 @@ def run_actions(
                     foreign_dialog_pattern=foreign_dialog_pattern,
                 )
                 if enforce_pointer_bounds and win_geo:
-                    win_geo = get_clickable_geometry(active_id) or win_geo
+                    geos = resolve_pointer_geometries(active_id, main_window_id, previous_geo=win_geo)
+                    if geos:
+                        win_geo = geos[0]
                     mouse = get_mouse_location()
                     if not mouse:
                         raise ReplayAbort("Could not determine mouse position before click")
-                    if not point_in_window(mouse["x"], mouse["y"], win_geo, margin=pointer_margin):
+                    if not point_in_any_window(mouse["x"], mouse["y"], geos, margin=pointer_margin):
                         raise ReplayAbort(
                             f"Blocked unsafe click at ({mouse['x']},{mouse['y']}) outside OpenShot window bounds {win_geo}"
                         )
@@ -591,11 +624,13 @@ def run_actions(
                     foreign_dialog_pattern=foreign_dialog_pattern,
                 )
                 if enforce_pointer_bounds and win_geo:
-                    win_geo = get_clickable_geometry(active_id) or win_geo
+                    geos = resolve_pointer_geometries(active_id, main_window_id, previous_geo=win_geo)
+                    if geos:
+                        win_geo = geos[0]
                     mouse = get_mouse_location()
                     if not mouse:
                         raise ReplayAbort("Could not determine mouse position before mousedown")
-                    if not point_in_window(mouse["x"], mouse["y"], win_geo, margin=pointer_margin):
+                    if not point_in_any_window(mouse["x"], mouse["y"], geos, margin=pointer_margin):
                         # Dialog/main close buttons are often in the title bar
                         # above client geometry. Allow a small title-bar band
                         # for the currently active OpenShot-owned window, and
@@ -612,9 +647,10 @@ def run_actions(
                             and int(active_pid) != int(expected_pid)
                         )
                         titlebar_margin = max(pointer_margin, 40)
-                        in_titlebar_band = (
-                            (win_geo["x"] - pointer_margin) <= mouse["x"] < (win_geo["x"] + win_geo["width"] + pointer_margin)
-                            and (win_geo["y"] - titlebar_margin) <= mouse["y"] < win_geo["y"]
+                        in_titlebar_band = any(
+                            (geo["x"] - pointer_margin) <= mouse["x"] < (geo["x"] + geo["width"] + pointer_margin)
+                            and (geo["y"] - titlebar_margin) <= mouse["y"] < geo["y"]
+                            for geo in geos
                         )
                         if not ((is_openshot_owned or is_foreign_dialog) and in_titlebar_band):
                             raise ReplayAbort(
@@ -635,11 +671,13 @@ def run_actions(
                     foreign_dialog_pattern=foreign_dialog_pattern,
                 )
                 if enforce_pointer_bounds and win_geo:
-                    win_geo = get_clickable_geometry(active_id) or win_geo
+                    geos = resolve_pointer_geometries(active_id, main_window_id, previous_geo=win_geo)
+                    if geos:
+                        win_geo = geos[0]
                     mouse = get_mouse_location()
                     if not mouse:
                         raise ReplayAbort("Could not determine mouse position before mouseup")
-                    if not point_in_window(mouse["x"], mouse["y"], win_geo, margin=pointer_margin):
+                    if not point_in_any_window(mouse["x"], mouse["y"], geos, margin=pointer_margin):
                         # Mouse release can legitimately occur after focus/window
                         # transitions (for example, dialog open/close during
                         # double-click flows). Releasing is lower risk than
@@ -659,11 +697,13 @@ def run_actions(
                     foreign_dialog_pattern=foreign_dialog_pattern,
                 )
                 if enforce_pointer_bounds and win_geo:
-                    win_geo = get_clickable_geometry(active_id) or win_geo
+                    geos = resolve_pointer_geometries(active_id, main_window_id, previous_geo=win_geo)
+                    if geos:
+                        win_geo = geos[0]
                     mouse = get_mouse_location()
                     if not mouse:
                         raise ReplayAbort("Could not determine mouse position before scroll")
-                    if not point_in_window(mouse["x"], mouse["y"], win_geo, margin=pointer_margin):
+                    if not point_in_any_window(mouse["x"], mouse["y"], geos, margin=pointer_margin):
                         raise ReplayAbort(
                             f"Blocked unsafe scroll at ({mouse['x']},{mouse['y']}) outside OpenShot window bounds {win_geo}"
                         )
