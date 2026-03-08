@@ -19,7 +19,6 @@ from replay import (
     normalize_arg_list,
     normalize_env_map,
     parse_env_assignments,
-    reset_openshot_profile,
     run_actions,
     wait_for_window,
 )
@@ -787,7 +786,11 @@ def run_case(
     extra_openshot_args,
     emergency_stop=None,
 ):
-    reset_openshot_profile(home_dir)
+    cleanup = cleanup_home_artifacts(home_dir, remove_profile=True, remove_exports=True)
+    print(
+        f"[CLEANUP] {case['name']}: removed OpenShot profile dir '{cleanup['profile_dir']}' "
+        f"(if present) and {cleanup['artifacts_removed']} home artifact(s)"
+    )
     actual_updates = output_dir / f"{case['name']}.actual.updates.jsonl"
     actual_selections = output_dir / f"{case['name']}.actual.selections.jsonl"
     actual_events = output_dir / f"{case['name']}.actual.events.jsonl"
@@ -918,11 +921,6 @@ def main():
     output_dir = Path(args.out).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     home_dir.mkdir(parents=True, exist_ok=True)
-    cleanup = cleanup_home_artifacts(home_dir, remove_profile=True, remove_exports=True)
-    print(
-        f"[CLEANUP] Removed OpenShot profile dir '{cleanup['profile_dir']}' (if present) "
-        f"and {cleanup['artifacts_removed']} home artifact(s) from {cleanup['home_dir']}"
-    )
 
     cases = discover_cases(cases_dir)
     if not cases:
