@@ -148,7 +148,7 @@ class ProgressOverlay:
         self.case_index = 0
         self.case_total = 0
         self.case_name = ""
-        self.case_started_at = None
+        self.started_at = None
         self.message = ""
         self._proc = None
         self._available = False
@@ -169,13 +169,13 @@ class ProgressOverlay:
         except Exception:
             self._proc = None
             return
+        self.started_at = time.time()
         self._available = True
 
-    def update_case(self, case_index, case_total, case_name, case_started_at):
+    def update_case(self, case_index, case_total, case_name):
         self.case_index = int(case_index or 0)
         self.case_total = int(case_total or 0)
         self.case_name = str(case_name or "")
-        self.case_started_at = time.time() if case_started_at is not None else None
         self.message = ""
         self._flush()
 
@@ -209,7 +209,7 @@ class ProgressOverlay:
                 "case_index": self.case_index,
                 "case_total": self.case_total,
                 "case_name": self.case_name,
-                "started_at": self.case_started_at,
+                "started_at": self.started_at,
                 "message": self.message,
             },
         }
@@ -1143,7 +1143,7 @@ def main():
     try:
         for case_index, case in enumerate(cases, start=1):
             case_start = time.perf_counter()
-            overlay.update_case(case_index, len(cases), case["name"], case_start)
+            overlay.update_case(case_index, len(cases), case["name"])
             if estop.triggered:
                 aborted_reason = "Emergency Esc pressed before starting next case."
                 overlay.set_message(aborted_reason)
