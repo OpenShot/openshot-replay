@@ -3,6 +3,8 @@ import argparse
 import json
 import os
 import re
+import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -22,6 +24,200 @@ from replay import (
     run_actions,
     wait_for_window,
 )
+
+
+def format_elapsed_timecode(seconds, fps=30):
+    seconds = int(max(0.0, float(seconds or 0.0)))
+    minutes, secs = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+
+OVERLAY_HELPER_CODE = r"""
+import json
+import sys
+import threading
+import time
+import tkinter as tk
+
+
+def format_elapsed_timecode(seconds, fps=30):
+    seconds = max(0.0, float(seconds or 0.0))
+    minutes, secs = divmod(int(seconds), 60)
+    hours, minutes = divmod(minutes, 60)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+
+state = {
+    "fps": 30,
+    "case_index": 0,
+    "case_total": 0,
+    "case_name": "",
+    "started_at": None,
+    "message": "",
+}
+stop_requested = False
+
+root = tk.Tk()
+root.overrideredirect(True)
+root.attributes("-topmost", True)
+try:
+    root.attributes("-alpha", 0.9)
+except Exception:
+    pass
+root.configure(bg="#111111")
+
+frame = tk.Frame(root, bg="#111111", bd=0, highlightthickness=0)
+frame.pack(fill="both", expand=True)
+
+primary = tk.Label(
+    frame,
+    text="",
+    fg="#ffffff",
+    bg="#111111",
+    font=("TkDefaultFont", 28, "bold"),
+    padx=28,
+    pady=10,
+)
+primary.pack()
+
+secondary = tk.Label(
+    frame,
+    text="",
+    fg="#d0d0d0",
+    bg="#111111",
+    font=("TkDefaultFont", 15, "bold"),
+    padx=16,
+    pady=0,
+)
+secondary.pack(pady=(0, 10))
+
+
+def refresh():
+    started_at = state.get("started_at")
+    elapsed = 0.0 if started_at is None else max(0.0, time.time() - started_at)
+    counter = f"{state['case_index']}/{state['case_total']}" if state["case_total"] else "0/0"
+    primary.configure(
+        text=f"{counter} ({format_elapsed_timecode(elapsed, fps=state['fps'])} elapsed)"
+    )
+    secondary.configure(text=state["message"] or state["case_name"])
+    root.update_idletasks()
+    width = root.winfo_reqwidth()
+    height = root.winfo_reqheight()
+    screen_width = root.winfo_screenwidth()
+    x = max(0, int((screen_width - width) / 2))
+    root.geometry(f"{width}x{height}+{x}+18")
+    root.after(1000, refresh)
+
+
+def close_overlay():
+    try:
+        root.destroy()
+    except Exception:
+        pass
+
+
+def read_stdin():
+    global stop_requested
+    while True:
+        line = sys.stdin.readline()
+        if not line:
+            root.after(0, close_overlay)
+            return
+        try:
+            payload = json.loads(line)
+        except Exception:
+            continue
+        if payload.get("cmd") == "stop":
+            stop_requested = True
+            root.after(0, close_overlay)
+            return
+        if payload.get("cmd") == "update":
+            state.update(payload.get("state") or {})
+
+
+root.after(0, refresh)
+threading.Thread(target=read_stdin, daemon=True).start()
+root.mainloop()
+"""
+
+
+class ProgressOverlay:
+    def __init__(self, fps=30):
+        self.fps = max(1, int(fps or 30))
+        self.case_index = 0
+        self.case_total = 0
+        self.case_name = ""
+        self.case_started_at = None
+        self.message = ""
+        self._proc = None
+        self._available = False
+
+    def start(self):
+        if self._proc is not None:
+            return
+        if not os.environ.get("DISPLAY"):
+            return
+        try:
+            self._proc = subprocess.Popen(
+                [sys.executable, "-c", OVERLAY_HELPER_CODE],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                text=True,
+            )
+        except Exception:
+            self._proc = None
+            return
+        self._available = True
+
+    def update_case(self, case_index, case_total, case_name, case_started_at):
+        self.case_index = int(case_index or 0)
+        self.case_total = int(case_total or 0)
+        self.case_name = str(case_name or "")
+        self.case_started_at = time.time() if case_started_at is not None else None
+        self.message = ""
+        self._flush()
+
+    def set_message(self, message):
+        self.message = str(message or "")
+        self._flush()
+
+    def stop(self):
+        if self._proc is None:
+            return
+        try:
+            if self._proc.stdin:
+                self._proc.stdin.write(json.dumps({"cmd": "stop"}) + "\n")
+                self._proc.stdin.flush()
+                self._proc.stdin.close()
+        except Exception:
+            pass
+        try:
+            self._proc.wait(timeout=2.0)
+        except Exception:
+            self._proc.kill()
+        self._proc = None
+
+    def _flush(self):
+        if self._proc is None or self._proc.stdin is None:
+            return
+        payload = {
+            "cmd": "update",
+            "state": {
+                "fps": self.fps,
+                "case_index": self.case_index,
+                "case_total": self.case_total,
+                "case_name": self.case_name,
+                "started_at": self.case_started_at,
+                "message": self.message,
+            },
+        }
+        try:
+            self._proc.stdin.write(json.dumps(payload) + "\n")
+            self._proc.stdin.flush()
+        except Exception:
+            self._proc = None
 
 
 def load_jsonl(path):
@@ -939,13 +1135,18 @@ def main():
     case_rows = []
     aborted_reason = ""
     suite_start = time.perf_counter()
+    overlay = ProgressOverlay(fps=30)
+    overlay.start()
+    overlay.set_message("Preparing test run")
     estop = EmergencyStop()
     estop.start()
     try:
-        for case in cases:
+        for case_index, case in enumerate(cases, start=1):
             case_start = time.perf_counter()
+            overlay.update_case(case_index, len(cases), case["name"], case_start)
             if estop.triggered:
                 aborted_reason = "Emergency Esc pressed before starting next case."
+                overlay.set_message(aborted_reason)
                 print(f"[ABORT] {aborted_reason}")
                 break
             print(f"[RUN] {case['name']}")
@@ -1009,6 +1210,7 @@ def main():
                     f"updates={update_stats['events']}, "
                     f"selections={selection_stats['events']})"
                 )
+                overlay.set_message(f"{case['name']} PASS")
                 case_rows.append(
                     {
                         "name": case["name"],
@@ -1025,9 +1227,11 @@ def main():
             except ReplayAbort as exc:
                 if estop.triggered:
                     aborted_reason = f"Emergency Esc pressed during case '{case['name']}'."
+                    overlay.set_message(aborted_reason)
                     print(f"[ABORT] {aborted_reason}")
                     break
                 failures.append((case["name"], str(exc)))
+                overlay.set_message(f"{case['name']} FAIL")
                 case_rows.append(
                     {
                         "name": case["name"],
@@ -1043,10 +1247,12 @@ def main():
                 print(f"[FAIL] {case['name']}: {exc}")
             except KeyboardInterrupt:
                 aborted_reason = "Interrupted by keyboard."
+                overlay.set_message(aborted_reason)
                 print(f"[ABORT] {aborted_reason}")
                 break
             except Exception as exc:
                 failures.append((case["name"], str(exc)))
+                overlay.set_message(f"{case['name']} FAIL")
                 case_rows.append(
                     {
                         "name": case["name"],
@@ -1062,6 +1268,7 @@ def main():
                 print(f"[FAIL] {case['name']}: {exc}")
     finally:
         estop.stop()
+        overlay.stop()
 
     print_results_table(case_rows)
 
