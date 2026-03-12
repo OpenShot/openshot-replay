@@ -35,6 +35,25 @@ def wmctrl(*parts, check=True, capture=False):
     return run_cmd(cmd, check=check, capture=capture)
 
 
+def require_x11_session(tool_name):
+    session_type = (os.getenv("XDG_SESSION_TYPE") or "").strip().lower()
+    display = (os.getenv("DISPLAY") or "").strip()
+    wayland_display = (os.getenv("WAYLAND_DISPLAY") or "").strip()
+
+    if session_type == "wayland":
+        raise SystemExit(
+            f"{tool_name} requires an X11 session. Detected XDG_SESSION_TYPE=wayland"
+            f"{f' and WAYLAND_DISPLAY={wayland_display!r}' if wayland_display else ''}. "
+            "Synthetic mouse/keyboard input via xdotool/wmctrl will not work reliably under Wayland. "
+            "Log into an 'Ubuntu on Xorg' or 'GNOME on Xorg' session and retry."
+        )
+    if not display:
+        raise SystemExit(
+            f"{tool_name} requires an interactive X11 session, but DISPLAY is not set. "
+            "Run it from a desktop X11 session and retry."
+        )
+
+
 def parse_env_assignments(values, source_label="--env"):
     env = {}
     for item in values or []:
@@ -905,6 +924,7 @@ def main():
         help="Extra argument passed to openshot-qt launch.py (repeatable; use --openshot-arg=--flag=value)",
     )
     args = parser.parse_args()
+    require_x11_session("replay.py")
     if args.speed <= 0:
         raise SystemExit("--speed must be > 0")
     global DEBUG_REPLAY

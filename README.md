@@ -37,19 +37,13 @@ By default, scripts target `../openshot-qt`. Override with:
 ## Requirements
 
 - Ubuntu + X11 session
-- `xdotool`
-- `wmctrl`
-- `curl`
-- `unzip`
-- Python 3.10+
-- `pynput` (recording + emergency Esc stop)
+- Python 3.10+ and the system packages below.
 
 Install:
 
 ```bash
 sudo apt update
-sudo apt install -y xdotool wmctrl curl unzip python3 python3-pip
-python3 -m pip install --user pynput
+sudo apt install -y xdotool wmctrl curl unzip python3 python3-pynput
 ```
 
 ## Test Media Setup

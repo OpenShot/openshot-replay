@@ -21,6 +21,7 @@ from replay import (
     normalize_arg_list,
     normalize_env_map,
     parse_env_assignments,
+    require_x11_session,
     run_actions,
     wait_for_window,
 )
@@ -1099,6 +1100,7 @@ def main():
         help="Run only selected case name(s) or *.actions.json filename(s) (repeatable)",
     )
     args = parser.parse_args()
+    require_x11_session("tests.py")
     if args.speed <= 0:
         raise SystemExit("--speed must be > 0")
     if args.float_tol < 0:
