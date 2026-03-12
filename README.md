@@ -58,7 +58,8 @@ Download and extract it:
 mkdir -p suite/artifacts/home
 curl -L -o /tmp/openshot-testing.zip https://s3.amazonaws.com/releases.openshot.org/testing/openshot-testing.zip
 rm -rf suite/artifacts/home/openshot-testing
-unzip -q /tmp/openshot-testing.zip -d suite/artifacts/home
+mkdir -p suite/artifacts/home/openshot-testing
+unzip -q /tmp/openshot-testing.zip -d suite/artifacts/home/openshot-testing
 ```
 
 ## Standard Procedure
