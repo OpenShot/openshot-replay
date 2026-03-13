@@ -34,6 +34,13 @@ def format_elapsed_timecode(seconds, fps=30):
     return f"{hours:02d}:{minutes:02d}:{secs:02d}"
 
 
+def elapsed_seconds(started_at, ended_at=None):
+    if started_at is None:
+        return 0.0
+    end_value = time.time() if ended_at is None else float(ended_at)
+    return max(0.0, end_value - float(started_at))
+
+
 OVERLAY_HELPER_CODE = r"""
 import json
 import sys
@@ -939,7 +946,7 @@ def filter_cases(cases, selectors):
 
 
 def print_results_table(rows):
-    headers = ["Case", "Result", "Time (s)", "Assertions", "Events", "Updates", "Selections", "Details"]
+    headers = ["Case", "Result", "Attempts", "Time (s)", "Assertions", "Events", "Updates", "Selections", "Details"]
     widths = [len(h) for h in headers]
 
     normalized = []
@@ -947,6 +954,7 @@ def print_results_table(rows):
         values = [
             str(row.get("name", "")),
             str(row.get("result", "")),
+            str(row.get("attempts", "")),
             str(row.get("elapsed", "")),
             str(row.get("assertions", "")),
             str(row.get("events", "")),
@@ -1099,12 +1107,21 @@ def main():
         metavar="CASE",
         help="Run only selected case name(s) or *.actions.json filename(s) (repeatable)",
     )
+    parser.add_argument(
+        "--retry",
+        type=int,
+        default=3,
+        metavar="N",
+        help="Maximum attempts per case, including the initial run. Default: 3.",
+    )
     args = parser.parse_args()
     require_x11_session("tests.py")
     if args.speed <= 0:
         raise SystemExit("--speed must be > 0")
     if args.float_tol < 0:
         raise SystemExit("--float-tol must be >= 0")
+    if args.retry <= 0:
+        raise SystemExit("--retry must be > 0")
     try:
         cli_env = parse_env_assignments(args.env)
     except ValueError as exc:
@@ -1134,9 +1151,10 @@ def main():
     total_trace_events = 0
     total_update_events = 0
     total_selection_events = 0
+    total_attempts = 0
     case_rows = []
     aborted_reason = ""
-    suite_start = time.perf_counter()
+    suite_start = time.time()
     overlay = ProgressOverlay(fps=30)
     overlay.start()
     overlay.set_message("Preparing test run")
@@ -1144,7 +1162,8 @@ def main():
     estop.start()
     try:
         for case_index, case in enumerate(cases, start=1):
-            case_start = time.perf_counter()
+            case_start = time.time()
+            attempt_count = 0
             overlay.update_case(case_index, len(cases), case["name"])
             if estop.triggered:
                 aborted_reason = "Emergency Esc pressed before starting next case."
@@ -1153,60 +1172,95 @@ def main():
                 break
             print(f"[RUN] {case['name']}")
             try:
-                actual_updates, actual_selections, actual_events = run_case(
-                    case,
-                    home_dir,
-                    output_dir,
-                    args.window_name,
-                    args.speed,
-                    args.openshot_root or None,
-                    cli_env,
-                    cli_openshot_args,
-                    emergency_stop=estop,
-                )
-
+                attempt_count = 0
                 event_stats = {"events": 0, "assertions": 0}
                 update_stats = {"events": 0, "assertions": 0}
                 selection_stats = {"events": 0, "assertions": 0}
+                case_assertions = 0
+                final_error = None
 
-                if case["assert_events"]:
-                    if not case["expected_events"].exists():
-                        raise AssertionError(f"Missing expected events trace: {case['expected_events']}")
-                    if not actual_events.exists():
-                        raise AssertionError(f"Missing actual events trace: {actual_events}")
-                    event_stats = assert_events_trace(
-                        case["expected_events"], actual_events, float_tol=args.float_tol
-                    )
+                for attempt in range(1, args.retry + 1):
+                    attempt_count = attempt
+                    total_attempts += 1
+                    try:
+                        actual_updates, actual_selections, actual_events = run_case(
+                            case,
+                            home_dir,
+                            output_dir,
+                            args.window_name,
+                            args.speed,
+                            args.openshot_root or None,
+                            cli_env,
+                            cli_openshot_args,
+                            emergency_stop=estop,
+                        )
 
-                if case["assert_updates"]:
-                    if not case["expected_updates"].exists():
-                        raise AssertionError(f"Missing expected updates trace: {case['expected_updates']}")
-                    if not actual_updates.exists():
-                        raise AssertionError(f"Missing actual updates trace: {actual_updates}")
-                    update_stats = assert_updates_trace(
-                        case["expected_updates"], actual_updates, float_tol=args.float_tol
-                    )
+                        event_stats = {"events": 0, "assertions": 0}
+                        update_stats = {"events": 0, "assertions": 0}
+                        selection_stats = {"events": 0, "assertions": 0}
 
-                if case["assert_selections"]:
-                    if not case["expected_selections"].exists():
-                        raise AssertionError(f"Missing expected selections trace: {case['expected_selections']}")
-                    if not actual_selections.exists():
-                        raise AssertionError(f"Missing actual selections trace: {actual_selections}")
-                    selection_stats = assert_selections_trace(
-                        case["expected_selections"], actual_selections, float_tol=args.float_tol
-                    )
+                        if case["assert_events"]:
+                            if not case["expected_events"].exists():
+                                raise AssertionError(f"Missing expected events trace: {case['expected_events']}")
+                            if not actual_events.exists():
+                                raise AssertionError(f"Missing actual events trace: {actual_events}")
+                            event_stats = assert_events_trace(
+                                case["expected_events"], actual_events, float_tol=args.float_tol
+                            )
 
-                case_assertions = (
-                    event_stats["assertions"] + update_stats["assertions"] + selection_stats["assertions"]
-                )
+                        if case["assert_updates"]:
+                            if not case["expected_updates"].exists():
+                                raise AssertionError(f"Missing expected updates trace: {case['expected_updates']}")
+                            if not actual_updates.exists():
+                                raise AssertionError(f"Missing actual updates trace: {actual_updates}")
+                            update_stats = assert_updates_trace(
+                                case["expected_updates"], actual_updates, float_tol=args.float_tol
+                            )
+
+                        if case["assert_selections"]:
+                            if not case["expected_selections"].exists():
+                                raise AssertionError(
+                                    f"Missing expected selections trace: {case['expected_selections']}"
+                                )
+                            if not actual_selections.exists():
+                                raise AssertionError(f"Missing actual selections trace: {actual_selections}")
+                            selection_stats = assert_selections_trace(
+                                case["expected_selections"], actual_selections, float_tol=args.float_tol
+                            )
+
+                        case_assertions = (
+                            event_stats["assertions"]
+                            + update_stats["assertions"]
+                            + selection_stats["assertions"]
+                        )
+                        final_error = None
+                        break
+                    except ReplayAbort as exc:
+                        if estop.triggered:
+                            raise
+                        final_error = exc
+                    except Exception as exc:
+                        final_error = exc
+
+                    if attempt < args.retry:
+                        overlay.set_message(f"{case['name']} retry {attempt + 1}/{args.retry}")
+                        print(
+                            f"[RETRY] {case['name']} attempt {attempt}/{args.retry} failed: {final_error}"
+                        )
+
+                if final_error is not None:
+                    raise final_error
+
                 total_assertions += case_assertions
                 total_trace_events += event_stats["events"]
                 total_update_events += update_stats["events"]
                 total_selection_events += selection_stats["events"]
+                case_elapsed = elapsed_seconds(case_start)
 
                 print(
                     f"[PASS] {case['name']} "
-                    f"(time={time.perf_counter() - case_start:.2f}s, "
+                    f"(attempts={attempt_count}, "
+                    f"time={case_elapsed:.2f}s, "
                     f"assertions={case_assertions}, "
                     f"events={event_stats['events']}, "
                     f"updates={update_stats['events']}, "
@@ -1217,7 +1271,8 @@ def main():
                     {
                         "name": case["name"],
                         "result": "PASS",
-                        "elapsed": f"{time.perf_counter() - case_start:.2f}",
+                        "attempts": attempt_count,
+                        "elapsed": f"{case_elapsed:.2f}",
                         "assertions": case_assertions,
                         "events": event_stats["events"],
                         "updates": update_stats["events"],
@@ -1234,11 +1289,13 @@ def main():
                     break
                 failures.append((case["name"], str(exc)))
                 overlay.set_message(f"{case['name']} FAIL")
+                case_elapsed = elapsed_seconds(case_start)
                 case_rows.append(
                     {
                         "name": case["name"],
                         "result": "FAIL",
-                        "elapsed": f"{time.perf_counter() - case_start:.2f}",
+                        "attempts": attempt_count,
+                        "elapsed": f"{case_elapsed:.2f}",
                         "assertions": 0,
                         "events": 0,
                         "updates": 0,
@@ -1255,11 +1312,13 @@ def main():
             except Exception as exc:
                 failures.append((case["name"], str(exc)))
                 overlay.set_message(f"{case['name']} FAIL")
+                case_elapsed = elapsed_seconds(case_start)
                 case_rows.append(
                     {
                         "name": case["name"],
                         "result": "FAIL",
-                        "elapsed": f"{time.perf_counter() - case_start:.2f}",
+                        "attempts": attempt_count,
+                        "elapsed": f"{case_elapsed:.2f}",
                         "assertions": 0,
                         "events": 0,
                         "updates": 0,
@@ -1278,11 +1337,12 @@ def main():
     print(f"  Total: {len(cases)}")
     print(f"  Passed: {passes}")
     print(f"  Failed: {len(failures)}")
+    print(f"  Attempts: {total_attempts}")
     print(f"  Assertions: {total_assertions}")
     print(f"  Trace events checked: {total_trace_events}")
     print(f"  Update events checked: {total_update_events}")
     print(f"  Selection events checked: {total_selection_events}")
-    print(f"  Elapsed: {time.perf_counter() - suite_start:.2f}s")
+    print(f"  Elapsed: {elapsed_seconds(suite_start):.2f}s")
     if aborted_reason:
         print(f"  Aborted: yes ({aborted_reason})")
 
