@@ -46,22 +46,6 @@ sudo apt update
 sudo apt install -y xdotool wmctrl curl unzip python3 python3-pynput
 ```
 
-## Test Media Setup
-
-Recordings in this repo expect test media at:
-
-`suite/artifacts/home/openshot-testing`
-
-Download and extract it:
-
-```bash
-mkdir -p suite/artifacts/home
-curl -L -o /tmp/openshot-testing.zip https://s3.amazonaws.com/releases.openshot.org/testing/openshot-testing.zip
-rm -rf suite/artifacts/home/openshot-testing
-mkdir -p suite/artifacts/home/openshot-testing
-unzip -q /tmp/openshot-testing.zip -d suite/artifacts/home/openshot-testing
-```
-
 ## Standard Procedure
 
 1. Record one case per file.
