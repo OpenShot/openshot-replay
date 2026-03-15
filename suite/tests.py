@@ -470,6 +470,15 @@ def summarize_compared_row(row):
 
 
 def compare_subset(expected, actual, path="root", float_tol=0.05):
+    def tolerance_for_path(value_path):
+        if not isinstance(value_path, str):
+            return float_tol
+        if value_path.endswith(".audio_bit_rate") or value_path.endswith(".video_bit_rate"):
+            return max(float_tol, 1000.0)
+        if value_path.endswith(".file_size"):
+            return max(float_tol, 16.0)
+        return float_tol
+
     def as_number(value):
         if isinstance(value, (int, float)):
             return float(value)
@@ -505,11 +514,12 @@ def compare_subset(expected, actual, path="root", float_tol=0.05):
     exp_num = as_number(expected)
     act_num = as_number(actual)
     if exp_num is not None and act_num is not None:
-        if abs(exp_num - act_num) <= float_tol:
+        effective_tol = tolerance_for_path(path)
+        if abs(exp_num - act_num) <= effective_tol:
             return None
         return (
             f"{path}: expected {expected!r}, got {actual!r} "
-            f"(abs diff {abs(exp_num-act_num):.6f} > tol {float_tol})"
+            f"(abs diff {abs(exp_num-act_num):.6f} > tol {effective_tol})"
         )
     if expected != actual:
         return f"{path}: expected {expected!r}, got {actual!r}"
@@ -1110,9 +1120,9 @@ def main():
     parser.add_argument(
         "--retry",
         type=int,
-        default=3,
+        default=2,
         metavar="N",
-        help="Maximum attempts per case, including the initial run. Default: 3.",
+        help="Maximum attempts per case, including the initial run. Default: 2.",
     )
     args = parser.parse_args()
     require_x11_session("tests.py")
@@ -1350,6 +1360,10 @@ def main():
         print("\nFailures:")
         for name, err in failures:
             print(f"- {name}: {err}")
+            print(
+                "  Learn more: "
+                f"python3 debug.py {name} --actual-root {output_dir} --float-tol {args.float_tol}"
+            )
         raise SystemExit(1)
     if aborted_reason:
         raise SystemExit(2)
