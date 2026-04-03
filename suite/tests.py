@@ -308,19 +308,46 @@ def strip_volatile_fields(obj):
             if k == "waveform_token":
                 continue
             out[k] = strip_volatile_fields(v)
+        # Qt image-backed assets have inconsistent vcodec metadata across
+        # runs/builds (for example "" vs "QImage"), but that does not reflect
+        # replay behavior.
+        if out.get("type") == "QtImageReader" and "vcodec" in out:
+            out["vcodec"] = "<QtImageReader>"
         return out
     if isinstance(obj, list):
         return [strip_volatile_fields(x) for x in obj]
     return obj
 
 
+def normalize_backend_placeholder_fields(key, obj):
+    if not isinstance(key, list) or not key or key[0] != "clips":
+        return obj
+    if isinstance(obj, dict):
+        out = {k: normalize_backend_placeholder_fields(key, v) for k, v in obj.items()}
+        # Web-backed drags can emit a transient default clip layer before the
+        # nearest-track placement resolves. Ignore only the placeholder value and
+        # keep asserting real resolved layers such as 5000000.
+        if out.get("layer") == 0:
+            out.pop("layer", None)
+        return out
+    if isinstance(obj, list):
+        return [normalize_backend_placeholder_fields(key, item) for item in obj]
+    return obj
+
+
 def normalize_update_event(row, alias_map):
     key = normalize_ids(row.get("key"), alias_map)
-    value = strip_volatile_fields(
-        normalize_volatile_paths(normalize_ids(row.get("value"), alias_map))
+    value = normalize_backend_placeholder_fields(
+        key,
+        strip_volatile_fields(
+            normalize_volatile_paths(normalize_ids(row.get("value"), alias_map))
+        ),
     )
-    old_values = strip_volatile_fields(
-        normalize_volatile_paths(normalize_ids(row.get("old_values"), alias_map))
+    old_values = normalize_backend_placeholder_fields(
+        key,
+        strip_volatile_fields(
+            normalize_volatile_paths(normalize_ids(row.get("old_values"), alias_map))
+        ),
     )
     return {
         "action_type": row.get("action_type"),
