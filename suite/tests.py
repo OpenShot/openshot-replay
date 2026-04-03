@@ -299,10 +299,29 @@ def normalize_volatile_paths(obj):
     return obj
 
 
+def strip_volatile_fields(obj):
+    if isinstance(obj, dict):
+        out = {}
+        for k, v in obj.items():
+            # Audio waveform tokens are regenerated per run and do not encode
+            # user-visible replay behavior.
+            if k == "waveform_token":
+                continue
+            out[k] = strip_volatile_fields(v)
+        return out
+    if isinstance(obj, list):
+        return [strip_volatile_fields(x) for x in obj]
+    return obj
+
+
 def normalize_update_event(row, alias_map):
     key = normalize_ids(row.get("key"), alias_map)
-    value = normalize_volatile_paths(normalize_ids(row.get("value"), alias_map))
-    old_values = normalize_volatile_paths(normalize_ids(row.get("old_values"), alias_map))
+    value = strip_volatile_fields(
+        normalize_volatile_paths(normalize_ids(row.get("value"), alias_map))
+    )
+    old_values = strip_volatile_fields(
+        normalize_volatile_paths(normalize_ids(row.get("old_values"), alias_map))
+    )
     return {
         "action_type": row.get("action_type"),
         "key": key,
