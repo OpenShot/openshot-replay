@@ -522,7 +522,9 @@ def compare_subset(expected, actual, path="root", float_tol=0.05):
         if value_path.endswith(".audio_bit_rate") or value_path.endswith(".video_bit_rate"):
             return max(float_tol, 1000.0)
         if value_path.endswith(".file_size"):
-            return max(float_tol, 16.0)
+            # Encoded media containers can pick up small byte-level drift across
+            # FFmpeg/libavformat builds without changing the decoded result.
+            return max(float_tol, 4096.0)
         return float_tol
 
     def as_number(value):
