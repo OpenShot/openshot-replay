@@ -61,7 +61,6 @@ python3 suite/record.py \
   --output suite/cases/trim_clip.actions.json \
   --lang es_ES.UTF-8 \
   --env QT_SCALE_FACTOR=1 \
-  --openshot-arg=--web-backend=webengine \
   --openshot-root ../openshot-qt
 ```
 
@@ -104,16 +103,6 @@ Emergency stop: press physical `Esc`.
 Replay automatically applies `meta.env` from the actions file when launching OpenShot.
 Replay also automatically applies `meta.openshot_args` from the actions file.
 
-Backend-specific examples:
-
-```bash
-# Record for webengine
-python3 suite/record.py --output suite/cases/preview_webengine.actions.json --openshot-arg=--web-backend=webengine
-
-# Record for qwidget
-python3 suite/record.py --output suite/cases/preview_qwidget.actions.json --openshot-arg=--web-backend=qwidget
-```
-
 ## Run All Cases
 
 ```bash
@@ -143,12 +132,6 @@ Locale/env across all cases:
 
 ```bash
 python3 suite/tests.py --cases suite/cases --lang es_ES.UTF-8 --env QT_SCALE_FACTOR=1
-```
-
-OpenShot args across all cases:
-
-```bash
-python3 suite/tests.py --cases suite/cases --openshot-arg=--web-backend=webengine
 ```
 
 `tests.py` behavior:

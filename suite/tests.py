@@ -372,7 +372,7 @@ def normalize_selection_event(row, alias_map):
     return payload
 
 
-def normalize_dialog_window_title(title):
+def normalize_dialog_window_title(title, class_name="", object_name=""):
     if not isinstance(title, str):
         return title
     # Export progress dialog title includes runtime-dependent FPS, which
@@ -380,6 +380,14 @@ def normalize_dialog_window_title(title):
     normalized = re.sub(r"\(\d+(?:\.\d+)? FPS\)", "(FPS)", title)
     # Elapsed duration can vary by small amounts across runs.
     normalized = re.sub(r"\b\d{1,2}:\d{2}:\d{2}\b", "H:MM:SS", normalized)
+    # Preview dialog titles can now append clip names, e.g. "Preview: Face".
+    # For Cutting's non-modal preview window, only the base dialog identity matters.
+    if (
+        class_name == "Cutting"
+        and object_name == "cutting"
+        and normalized.startswith("Preview")
+    ):
+        return "Preview"
     return normalized
 
 
@@ -413,7 +421,11 @@ def normalize_trace_event(row, alias_map, has_following_non_dialog=False):
             "phase": phase,
             "class_name": row.get("class_name", ""),
             "object_name": row.get("object_name", ""),
-            "window_title": normalize_dialog_window_title(row.get("window_title", "")),
+            "window_title": normalize_dialog_window_title(
+                row.get("window_title", ""),
+                class_name=row.get("class_name", ""),
+                object_name=row.get("object_name", ""),
+            ),
             "modal": bool(row.get("modal", False)),
         }
         if "result" in row:

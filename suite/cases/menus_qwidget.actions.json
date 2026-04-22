@@ -28439,9 +28439,6 @@
     "env": {
       "LANG": "es_ES.UTF-8",
       "LC_ALL": "es_ES.UTF-8"
-    },
-    "openshot_args": [
-      "--web-backend=qwidget"
-    ]
+    }
   }
 }

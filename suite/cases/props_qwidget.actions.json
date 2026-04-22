@@ -17898,9 +17898,6 @@
   "meta": {
     "env": {
       "QT_SCALE_FACTOR": "1"
-    },
-    "openshot_args": [
-      "--web-backend=qwidget"
-    ]
+    }
   }
 }

@@ -16773,10 +16773,5 @@
       "action": "sleep",
       "seconds": 2.0071
     }
-  ],
-  "meta": {
-    "openshot_args": [
-      "--web-backend=qwidget"
-    ]
-  }
+  ]
 }

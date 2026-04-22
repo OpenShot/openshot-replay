@@ -22574,10 +22574,5 @@
       "action": "sleep",
       "seconds": 0.3522
     }
-  ],
-  "meta": {
-    "openshot_args": [
-      "--web-backend=qwidget"
-    ]
-  }
+  ]
 }
